@@ -68,7 +68,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
 
       {/* Actions */}
       <div className="flex items-center gap-3 pt-4 border-t border-brand-border/60 dark:border-white/10">
-        <Link href={`/training/${course.id}`} className="w-1/2">
+        <Link href={`/training/${(course as any).slug || "iso-9001-lead-auditor"}`} className="w-1/2">
           <Button variant="outline" size="sm" className="w-full justify-center">
             Syllabus
           </Button>

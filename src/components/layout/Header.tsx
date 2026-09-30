@@ -215,7 +215,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                     className="absolute top-full left-0 w-[640px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-6 mt-2 text-slate-900 grid grid-cols-2 gap-4 z-50"
                   >
                     <Link
-                      href="/training/lead-auditor"
+                      href="/training"
                       className="p-4 rounded-xl hover:bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all group"
                     >
                       <div className="flex items-center gap-3 mb-2">
@@ -235,7 +235,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                     </Link>
 
                     <Link
-                      href="/training/internal-auditor"
+                      href="/training"
                       className="p-4 rounded-xl hover:bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all group"
                     >
                       <div className="flex items-center gap-3 mb-2">
@@ -255,7 +255,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                     </Link>
 
                     <Link
-                      href="/training/professional"
+                      href="/training"
                       className="p-4 rounded-xl hover:bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all group"
                     >
                       <div className="flex items-center gap-3 mb-2">
@@ -391,7 +391,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                 <h3 className="text-xs font-mono text-slate-500 font-bold uppercase tracking-wider mb-3">Auditor Training</h3>
                 <div className="grid grid-cols-1 gap-2">
                   <Link
-                    href="/training/lead-auditor"
+                    href="/training"
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between"
                   >
@@ -399,7 +399,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                     <ArrowRight className="w-4 h-4 text-slate-400" />
                   </Link>
                   <Link
-                    href="/training/internal-auditor"
+                    href="/training"
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between"
                   >
@@ -407,7 +407,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                     <ArrowRight className="w-4 h-4 text-slate-400" />
                   </Link>
                   <Link
-                    href="/training/professional"
+                    href="/training"
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between"
                   >
