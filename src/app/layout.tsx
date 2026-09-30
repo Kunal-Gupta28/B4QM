@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import AnimatedPageLoader from "@/components/ui/AnimatedPageLoader";
 
 export const metadata: Metadata = {
   title: "B4Q Management Ltd. | ISO Certification & Exemplar Global Auditor Training",
@@ -43,7 +45,10 @@ export default function RootLayout({
         className="min-h-screen bg-white text-slate-900 antialiased selection:bg-[#251574] selection:text-white"
         suppressHydrationWarning
       >
-        {children}
+        <AnimatedPageLoader />
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );
