@@ -18,19 +18,21 @@ export default function HorizontalScrollSection() {
 
     if (!section || !trigger) return;
 
-    // Calculate total horizontal scroll width
-    const totalScrollWidth = section.scrollWidth - window.innerWidth;
-
     const ctx = gsap.context(() => {
-      // Slightly faster horizontal scroll speed with scrub: 0.5
+      // Calculate exact horizontal overflow width
+      const getScrollAmount = () => {
+        return section.scrollWidth - window.innerWidth + 80;
+      };
+
       gsap.to(section, {
-        x: -totalScrollWidth,
+        x: () => -getScrollAmount(),
         ease: "none",
         scrollTrigger: {
           trigger: trigger,
           pin: true,
-          scrub: 0.5, // Snappier & faster response
-          end: () => `+=${totalScrollWidth * 0.75}`, // Slightly faster distance ratio
+          scrub: 0.5,
+          // Add +450px vertical scroll padding so the last card stays fully visible & clickable
+          end: () => `+=${getScrollAmount() + 450}`,
           invalidateOnRefresh: true,
         },
       });
@@ -101,7 +103,7 @@ export default function HorizontalScrollSection() {
         {/* Horizontal Moving Track */}
         <div
           ref={sectionRef}
-          className="flex gap-8 px-6 md:px-16 items-center shrink-0"
+          className="flex gap-8 pl-6 md:pl-16 pr-16 md:pr-32 items-center shrink-0"
         >
 
           {/* Intro Headline Card */}
