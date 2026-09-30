@@ -361,7 +361,7 @@ export default function HomePage() {
       <HorizontalScrollSection />
 
       {/* Certification Process Stepper */}
-      <section className="py-20 md:py-32 bg-slate-50 border-t border-slate-200/80">
+      <section className="py-20 md:py-32 bg-slate-50 border-t border-slate-200/80 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#FF4D5A] mb-2">
