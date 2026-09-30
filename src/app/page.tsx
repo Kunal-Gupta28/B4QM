@@ -39,6 +39,7 @@ import GsapScrollShowcase from "@/components/ui/GsapScrollShowcase";
 import LiveBadgeGenerator from "@/components/ui/LiveBadgeGenerator";
 import ThreeHologramGlobe from "@/components/ui/ThreeHologramGlobe";
 import HorizontalScrollSection from "@/components/ui/HorizontalScrollSection";
+import ProcessStepperGsap from "@/components/ui/ProcessStepperGsap";
 import { ISO_STANDARDS } from "@/lib/data";
 
 export default function HomePage() {
@@ -360,53 +361,8 @@ export default function HomePage() {
       {/* NEW: GSAP Horizontal Pinning Expedition */}
       <HorizontalScrollSection />
 
-      {/* Certification Process Stepper */}
-      <section className="py-20 md:py-32 bg-slate-50 border-t border-slate-200/80 relative z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#FF4D5A] mb-2">
-              Transparent Audit Roadmap
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
-              6-Step ISO Certification Lifecycle
-            </h2>
-            <p className="text-slate-600 text-sm md:text-base mt-3">
-              From application to 3-year recertification. Simple, structured, and compliant with ISO/IEC 17021-1.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {processSteps.map((step) => (
-              <div key={step.step} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xs hover:shadow-md transition-shadow relative">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-3xl font-extrabold font-mono text-[#251574]">
-                    {step.step}
-                  </span>
-                  <span className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-mono font-medium">
-                    {step.timeline}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/get-a-quote"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#251574] hover:bg-indigo-900 text-white font-bold rounded-2xl shadow-md transition-all"
-            >
-              <span>Calculate Man-Days & Audit Cost</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* NEW: Certification Process Stepper with slow GSAP Parallax */}
+      <ProcessStepperGsap steps={processSteps} />
 
       {/* Client Testimonials */}
       <section className="py-20 md:py-32 bg-white">
