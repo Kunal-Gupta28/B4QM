@@ -18,20 +18,20 @@ export default function HorizontalScrollSection() {
 
     if (!section || !trigger) return;
 
-    // Calculate total horizontal scroll distance
+    // Calculate total horizontal scroll width
     const totalScrollWidth = section.scrollWidth - window.innerWidth;
 
     const ctx = gsap.context(() => {
+      // Slightly faster horizontal scroll speed with scrub: 0.5
       gsap.to(section, {
         x: -totalScrollWidth,
         ease: "none",
         scrollTrigger: {
           trigger: trigger,
           pin: true,
-          scrub: 0.4, // Slightly faster, snappier scrub speed
-          end: () => `+=${totalScrollWidth * 0.7}`, // Slightly shorter distance for faster horizontal flow
+          scrub: 0.5, // Snappier & faster response
+          end: () => `+=${totalScrollWidth * 0.75}`, // Slightly faster distance ratio
           invalidateOnRefresh: true,
-          anticipatePin: 1,
         },
       });
     }, triggerRef);
@@ -45,7 +45,8 @@ export default function HorizontalScrollSection() {
       code: "ISO 9001:2015",
       name: "Quality Management System",
       desc: "The gold standard for operational consistency, customer satisfaction, and risk-based management.",
-      color: "from-sky-500/20 to-[#251574]/90 border-sky-400/40 text-sky-400",
+      color: "from-sky-500/20 to-[#251574]/80 border-sky-400/40 text-sky-400",
+      accent: "#008AD8",
       icon: ShieldCheck,
       badge: "Quality Gold Standard",
     },
@@ -54,7 +55,8 @@ export default function HorizontalScrollSection() {
       code: "ISO 27001:2022",
       name: "Information Security Management",
       desc: "93 modernized Annex A controls protecting cloud infrastructure, enterprise data, and cybersecurity.",
-      color: "from-indigo-600/30 to-[#251574]/95 border-indigo-500/40 text-indigo-400",
+      color: "from-indigo-600/30 to-[#251574]/90 border-indigo-500/40 text-indigo-400",
+      accent: "#6366F1",
       icon: Lock,
       badge: "93 Cyber Controls",
     },
@@ -63,7 +65,8 @@ export default function HorizontalScrollSection() {
       code: "ISO 14001:2015",
       name: "Environmental Management",
       desc: "Systematic framework for carbon footprint reduction, resource efficiency, and ESG compliance.",
-      color: "from-emerald-600/30 to-[#251574]/95 border-emerald-500/40 text-emerald-400",
+      color: "from-emerald-600/30 to-[#251574]/90 border-emerald-500/40 text-emerald-400",
+      accent: "#10B981",
       icon: Leaf,
       badge: "ESG & Sustainability",
     },
@@ -72,15 +75,16 @@ export default function HorizontalScrollSection() {
       code: "ISO 45001:2018",
       name: "Occupational Health & Safety",
       desc: "Proactive hazard mitigation, workforce wellbeing, and zero-accident operational safety.",
-      color: "from-amber-600/30 to-[#251574]/95 border-amber-500/40 text-amber-400",
+      color: "from-amber-600/30 to-[#251574]/90 border-amber-500/40 text-amber-400",
+      accent: "#F59E0B",
       icon: HeartPulse,
       badge: "Workplace Safety",
     },
   ];
 
   return (
-    <div ref={triggerRef} className="overflow-hidden bg-[#251574] text-white relative z-10 my-0">
-      {/* Background Grid Lines */}
+    <div ref={triggerRef} className="overflow-hidden bg-[#251574] text-white relative z-10">
+      {/* Background Futuristic Grid Lines */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
 
       {/* Outer Pinned Viewport */}
@@ -88,7 +92,7 @@ export default function HorizontalScrollSection() {
 
         {/* Section Header Fixed Left Tag */}
         <div className="absolute top-10 left-6 md:left-12 z-20 flex items-center gap-3">
-          <div className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-mono font-semibold text-sky-300 flex items-center gap-2 shadow-lg">
+          <div className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-mono font-semibold text-sky-300 flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-[#FF4D5A]" />
             <span>GSAP PINNED HORIZONTAL EXPEDITION</span>
           </div>
@@ -111,7 +115,7 @@ export default function HorizontalScrollSection() {
             <p className="text-slate-300 text-sm md:text-base leading-relaxed">
               Explore the core ISO management frameworks audited by B4Q&apos;s lead auditors across global enterprise sectors.
             </p>
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400">
               <span>Scroll Down To Navigate Right →</span>
             </div>
           </div>
@@ -122,10 +126,10 @@ export default function HorizontalScrollSection() {
             return (
               <div
                 key={std.id}
-                className={`w-[320px] sm:w-[400px] h-[480px] shrink-0 rounded-3xl p-8 bg-gradient-to-b ${std.color} backdrop-blur-xl border shadow-2xl flex flex-col justify-between relative group overflow-hidden transition-all duration-300 hover:scale-[1.02]`}
+                className={`w-[320px] sm:w-[400px] h-[480px] shrink-0 rounded-3xl p-8 bg-gradient-to-b ${std.color} backdrop-blur-xl border shadow-2xl flex flex-col justify-between relative group overflow-hidden transition-all duration-500 hover:scale-[1.02]`}
               >
                 {/* Glow Backdrop */}
-                <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-white/5 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
+                <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-white/5 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700" />
 
                 <div>
                   <div className="flex items-center justify-between mb-6">
