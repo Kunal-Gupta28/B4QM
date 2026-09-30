@@ -37,6 +37,8 @@ import { CommandPalette } from "@/components/ui/CommandPalette";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import GsapScrollShowcase from "@/components/ui/GsapScrollShowcase";
 import LiveBadgeGenerator from "@/components/ui/LiveBadgeGenerator";
+import ThreeHologramGlobe from "@/components/ui/ThreeHologramGlobe";
+import HorizontalScrollSection from "@/components/ui/HorizontalScrollSection";
 import { ISO_STANDARDS } from "@/lib/data";
 
 export default function HomePage() {
@@ -233,27 +235,33 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Right Interactive Certificate Card */}
+            {/* Right Interactive Certificate Card with 3D Hologram Globe */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5 flex justify-center"
+              className="lg:col-span-5 flex flex-col items-center justify-center relative"
             >
-              <CertificateCard
-                certificate={{
-                  certNumber: "B4Q-ISMS-849201",
-                  clientName: "Global CyberSec Enterprises Ltd",
-                  standard: "ISO 27001:2022",
-                  scope: "Provision of Cloud Managed Security Services, SOC Monitoring, and Information Security Governance.",
-                  issueDate: "2024-01-15",
-                  expiryDate: "2027-01-14",
-                  status: "Valid",
-                  country: "United Kingdom",
-                  sites: ["London HQ", "Manchester DC"],
-                  type: "Organisation",
-                }}
-              />
+              <div className="absolute inset-0 z-0 opacity-80 pointer-events-auto">
+                <ThreeHologramGlobe />
+              </div>
+              
+              <div className="relative z-10 w-full max-w-sm sm:max-w-md">
+                <CertificateCard
+                  certificate={{
+                    certNumber: "B4Q-ISMS-849201",
+                    clientName: "Global CyberSec Enterprises Ltd",
+                    standard: "ISO 27001:2022",
+                    scope: "Provision of Cloud Managed Security Services, SOC Monitoring, and Information Security Governance.",
+                    issueDate: "2024-01-15",
+                    expiryDate: "2027-01-14",
+                    status: "Valid",
+                    country: "United Kingdom",
+                    sites: ["London HQ", "Manchester DC"],
+                    type: "Organisation",
+                  }}
+                />
+              </div>
             </motion.div>
 
           </div>
@@ -348,6 +356,9 @@ export default function HomePage() {
 
       {/* NEW: Live Interactive Certificate Studio Section */}
       <LiveBadgeGenerator />
+
+      {/* NEW: GSAP Horizontal Pinning Expedition */}
+      <HorizontalScrollSection />
 
       {/* Certification Process Stepper */}
       <section className="py-20 md:py-32 bg-slate-50 border-t border-slate-200/80">
