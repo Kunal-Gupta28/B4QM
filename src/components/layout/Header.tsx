@@ -270,7 +270,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
               About
             </Link>
             <Link href="/resources/documents" className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
-              Resources
+              General
             </Link>
             <Link href="/contact" className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
               Contact
