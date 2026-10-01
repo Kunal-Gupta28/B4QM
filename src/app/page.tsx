@@ -36,7 +36,6 @@ import { StandardCard } from "@/components/ui/StandardCard";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import GsapScrollShowcase from "@/components/ui/GsapScrollShowcase";
-import ThreeHologramGlobe from "@/components/ui/ThreeHologramGlobe";
 import { ISO_STANDARDS } from "@/lib/data";
 
 export default function HomePage() {
@@ -233,17 +232,13 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Right Interactive Certificate Card with 3D Hologram Globe */}
+            {/* Right Interactive Certificate Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-5 flex flex-col items-center justify-center relative"
             >
-              <div className="absolute inset-0 z-0 opacity-80 pointer-events-auto">
-                <ThreeHologramGlobe />
-              </div>
-              
               <div className="relative z-10 w-full max-w-sm sm:max-w-md">
                 <CertificateCard
                   certificate={{

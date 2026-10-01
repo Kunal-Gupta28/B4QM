@@ -24,7 +24,6 @@ import { Footer } from "@/components/layout/Footer";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { StandardCard } from "@/components/ui/StandardCard";
-import ThreeHologramCube from "@/components/ui/ThreeHologramCube";
 import { ISO_STANDARDS } from "@/lib/data";
 
 export default function CertificationHubPage() {
@@ -55,7 +54,6 @@ export default function CertificationHubPage() {
       {/* Hero Section */}
       <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-b from-sky-50/60 via-white to-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <ThreeHologramCube title="B4Q Accredited Standards" />
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
