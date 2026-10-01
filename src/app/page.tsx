@@ -36,9 +36,7 @@ import { StandardCard } from "@/components/ui/StandardCard";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import GsapScrollShowcase from "@/components/ui/GsapScrollShowcase";
-import LiveBadgeGenerator from "@/components/ui/LiveBadgeGenerator";
 import ThreeHologramGlobe from "@/components/ui/ThreeHologramGlobe";
-import FuturisticParallaxStudio from "@/components/ui/FuturisticParallaxStudio";
 import { ISO_STANDARDS } from "@/lib/data";
 
 export default function HomePage() {
@@ -364,12 +362,6 @@ export default function HomePage() {
 
         </div>
       </section>
-
-      {/* NEW: Live Interactive Certificate Studio Section */}
-      <LiveBadgeGenerator />
-
-      {/* NEW: Futuristic 3D Parallax ISO & Certification Lifecycle Studio */}
-      <FuturisticParallaxStudio />
 
       {/* Client Testimonials */}
       <section className="py-20 md:py-32 bg-white">

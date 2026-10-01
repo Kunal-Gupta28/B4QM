@@ -71,33 +71,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
 
   return (
     <>
-      {/* Top Banner / Trust Bar */}
-      <div className="bg-slate-100 text-slate-700 text-xs py-2 px-4 border-b border-slate-200 hidden md:block">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5 font-medium text-slate-800">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              Impartial ISO Certification Body
-            </span>
-            <span className="text-slate-300">|</span>
-            <span className="text-slate-600">
-              Global Offices: <strong className="text-[#251574] font-semibold">UK 🇬🇧 · India 🇮🇳 · USA 🇺🇸 · Singapore 🇸🇬</strong>
-            </span>
-          </div>
-          <div className="flex items-center gap-5 text-slate-700 font-medium">
-            <span className="inline-flex items-center gap-1.5 bg-sky-50 text-[#008AD8] border border-sky-200 px-2.5 py-0.5 rounded-full text-[11px] font-bold">
-              <Award className="w-3.5 h-3.5 text-[#008AD8]" /> Exemplar Global Authorised
-            </span>
-            <Link href="/verify" className="hover:text-[#251574] transition-colors">
-              Public Registry
-            </Link>
-            <Link href="/resources/suspended" className="hover:text-rose-600 transition-colors">
-              Suspended Register
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main Light Glass Header */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
