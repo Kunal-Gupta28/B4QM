@@ -385,10 +385,10 @@ export default function VerifyPage() {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#251574] selection:text-white">
+    <div className="w-full min-h-[100dvh] max-w-[100dvw] bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#251574] selection:text-white">
       <Header onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
 
-      <main className="flex-1 pt-16 pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <main className="flex-1 pt-[6dvh] pb-[10dvh] w-full max-w-5xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%]">
         <Suspense fallback={<div className="py-20 text-center font-mono text-xs text-slate-500">Loading registry utility...</div>}>
           <VerifyContent />
         </Suspense>

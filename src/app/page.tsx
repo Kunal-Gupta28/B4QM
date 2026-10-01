@@ -153,19 +153,19 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden w-full max-w-full">
+    <div className="min-h-[100dvh] flex flex-col bg-white overflow-x-hidden w-full max-w-[100dvw]">
       <Header onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+      <section className="relative w-full max-w-full pt-[8dvh] pb-[6dvh] md:pt-[12dvh] md:pb-[8dvh] bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
         {/* Ambient Radial Mesh Gradient Background */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-40">
-          <div className="absolute top-12 left-10 w-96 h-96 bg-[#251574]/10 rounded-full blur-3xl" />
-          <div className="absolute top-32 right-10 w-96 h-96 bg-[#008AD8]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-[#FF4D5A]/10 rounded-full blur-3xl" />
+          <div className="absolute top-12 left-10 w-[40%] h-[40%] bg-[#251574]/10 rounded-full blur-3xl" />
+          <div className="absolute top-32 right-10 w-[40%] h-[40%] bg-[#008AD8]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-1/3 w-[35%] h-[35%] bg-[#FF4D5A]/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
             {/* Left Hero Content */}
@@ -262,8 +262,8 @@ export default function HomePage() {
       </section>
 
       {/* Quick Verification Lookup Bar */}
-      <section className="bg-[#251574] py-8 text-white relative z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#251574] py-[4dvh] text-white relative z-20 w-full max-w-full">
+        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%]">
           <form onSubmit={handleHeroSearch} className="flex flex-col md:flex-row items-center gap-4 bg-white/10 backdrop-blur-md p-4 rounded-3xl border border-white/20">
             <div className="flex items-center gap-3 shrink-0 px-2">
               <ShieldCheck className="w-6 h-6 text-sky-400" />
@@ -306,8 +306,8 @@ export default function HomePage() {
       <GsapScrollShowcase />
 
       {/* Standards Filterable Grid Section */}
-      <section className="py-20 md:py-32 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-[6dvh] md:py-[10dvh] bg-white relative w-full max-w-full">
+        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%]">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>

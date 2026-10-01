@@ -36,13 +36,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth w-full min-h-[100dvh] max-w-[100dvw] overflow-x-hidden" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
-        className="min-h-screen bg-white text-slate-900 antialiased selection:bg-[#251574] selection:text-white"
+        className="w-full min-h-[100dvh] max-w-[100dvw] bg-white text-slate-900 antialiased selection:bg-[#251574] selection:text-white overflow-x-hidden"
         suppressHydrationWarning
       >
         <AnimatedPageLoader />

@@ -51,13 +51,13 @@ export default function SectorsPage() {
   });
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 overflow-x-hidden">
+    <div className="w-full min-h-[100dvh] max-w-[100dvw] flex flex-col bg-slate-50 text-slate-900 overflow-x-hidden">
       <Header onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-[#251574] via-[#120a3e] to-[#251574] text-white overflow-hidden">
+      <section className="relative w-full max-w-full pt-[8dvh] pb-[5dvh] bg-gradient-to-b from-[#251574] via-[#120a3e] to-[#251574] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] relative z-10 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-sky-300 backdrop-blur-md">
             <Globe2 className="w-4 h-4 text-amber-400" />
             <span>32 IAF ACCREDITED INDUSTRY SECTORS</span>

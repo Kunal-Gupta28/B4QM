@@ -73,13 +73,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
     <>
       {/* Main Light Glass Header */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        className={`sticky top-0 z-40 w-full max-w-full transition-all duration-300 ${
           isScrolled
             ? "py-3 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
             : "py-4 bg-white border-b border-slate-200/80"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] flex items-center justify-between">
           
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">

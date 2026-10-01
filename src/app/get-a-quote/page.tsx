@@ -126,12 +126,12 @@ export default function GetAQuotePage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#251574] selection:text-white">
+    <div className="w-full min-h-[100dvh] max-w-[100dvw] bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#251574] selection:text-white">
       <Header onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
 
       {/* Hero Header */}
-      <section className="pt-20 pb-12 bg-white border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+      <section className="w-full max-w-full pt-[6dvh] pb-[4dvh] bg-white border-b border-slate-200">
+        <div className="w-full max-w-4xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-[#008AD8] text-xs font-bold font-mono">
             <Calculator className="w-4 h-4 text-[#008AD8]" />
             <span>IAF Standardised Audit Man-Day Calculator</span>
@@ -147,7 +147,7 @@ export default function GetAQuotePage() {
 
       {/* Stepper Progress Bar */}
       {!isSubmitted && (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 w-full">
+        <div className="w-full max-w-4xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] pt-8">
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
             <div className="flex items-center justify-between text-xs font-mono text-slate-500">
               <span className="text-[#008AD8] font-bold">STEP {step} OF 4</span>

@@ -83,12 +83,12 @@ export default function AboutPage() {
   const [selectedMember, setSelectedMember] = useState<typeof TEAM_MEMBERS[0] | null>(null);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-[#251574] selection:text-white">
+    <div className="w-full min-h-[100dvh] max-w-[100dvw] bg-white text-slate-900 flex flex-col font-sans selection:bg-[#251574] selection:text-white">
       <Header onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
 
       {/* Hero */}
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20 bg-gradient-to-b from-sky-50/60 via-white to-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <section className="w-full max-w-full pt-[6dvh] pb-[4dvh] md:pt-[10dvh] md:pb-[6dvh] bg-gradient-to-b from-sky-50/60 via-white to-slate-50 border-b border-slate-200">
+        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] text-center space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

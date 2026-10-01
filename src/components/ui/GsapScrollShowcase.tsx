@@ -68,11 +68,11 @@ export default function GsapScrollShowcase() {
   ];
 
   return (
-    <section ref={containerRef} className="py-24 md:py-36 bg-slate-50 relative overflow-hidden">
+    <section ref={containerRef} className="py-[8dvh] md:py-[12dvh] bg-slate-50 relative overflow-hidden w-full max-w-full">
       {/* Background Decorative Grids */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] relative z-10">
         
         {/* Section Pill Badge */}
         <div className="flex justify-center mb-8">

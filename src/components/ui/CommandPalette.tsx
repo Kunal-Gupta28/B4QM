@@ -73,7 +73,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-[#0c0628]/80 backdrop-blur-md"
+            className="fixed inset-0 w-[100dvw] h-[100dvh] bg-[#0c0628]/80 backdrop-blur-md"
           />
 
           {/* Modal Container */}
@@ -82,7 +82,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: -15 }}
             transition={{ duration: 0.2 }}
-            className="relative w-full max-w-2xl bg-[#120a3e] text-slate-100 rounded-3xl shadow-2xl border border-white/20 overflow-hidden z-10 font-sans"
+            className="relative w-[92%] max-w-2xl max-h-[85dvh] bg-[#120a3e] text-slate-100 rounded-3xl shadow-2xl border border-white/20 overflow-hidden z-10 font-sans"
           >
             {/* Search Input Bar */}
             <div className="flex items-center px-5 py-4 border-b border-white/10 bg-[#0c0628]/90">
