@@ -90,6 +90,7 @@ The primary objective of this project is to replace the legacy WordPress/Element
 | `2026-09-30 21:57` | Antigravity AI | Git & GitHub Deployment | Initialized Git repository, configured `.gitignore`, and successfully pushed all 15 routes & codebase to GitHub repository [`Kunal-Gupta28/B4QM`](https://github.com/Kunal-Gupta28/B4QM.git). | ✅ Pushed |
 | `2026-09-30 22:14` | Antigravity AI | GSAP, Lenis & Interactive Studio | Added **Lenis Smooth Kinetic Scrolling** (`SmoothScrollProvider.tsx`), **GSAP ScrollTrigger Scrubbing & Stacking Bento** (`GsapScrollShowcase.tsx`), **Animated Curtain Intro Loader** (`AnimatedPageLoader.tsx`), and **Live 3D Interactive Certificate Studio** (`LiveBadgeGenerator.tsx`) with confetti physics. Pushed to GitHub. | ✅ Deployed |
 | `2026-09-30 22:25` | Antigravity AI | 3D WebGL Models & Horizontal Scroll | Added **Three.js Interactive 3D Wireframe Globe** (`ThreeHologramGlobe.tsx`), **GSAP Horizontal Scroll Pinning Expedition** (`HorizontalScrollSection.tsx`), and **3D Hologram Cube Spec Viewer** (`ThreeHologramCube.tsx`). All 15 routes compiled clean. Local git commit ready (not auto-pushed). | ✅ Complete |
+| `2026-10-01 10:50` | Antigravity AI | Light Page Loader & Logo Alignment | Redesigned `AnimatedPageLoader.tsx` from dark purple to **Crisp Light Glass theme** with soft ambient glow, fast 800ms counter, and official B4Q logo matching the main header 100%. Local git commit ready (not auto-pushed). | ✅ Complete |
 
 ---
 
