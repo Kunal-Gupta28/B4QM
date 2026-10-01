@@ -22,9 +22,12 @@ import {
   Zap,
   Globe2,
   Eye,
-  Layers
+  Layers,
+  Check,
+  Building2
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function FuturisticParallaxStudio() {
   const horizontalTriggerRef = useRef<HTMLDivElement>(null);
@@ -35,51 +38,94 @@ export default function FuturisticParallaxStudio() {
   const [activeIsoIndex, setActiveIsoIndex] = useState(0);
   const [activeStepModal, setActiveStepModal] = useState<number | null>(null);
 
-  // 1. Three.js WebGL Hologram Sphere Setup
+  // 1. Three.js WebGL Accredited Certification Body Monogram Seal Setup
   useEffect(() => {
     const container = threeCanvasRef.current;
     if (!container) return;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 3.8;
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.z = 4.2;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Glowing Holographic Sphere Matrix
-    const group = new THREE.Group();
-    scene.add(group);
+    // Studio Lighting setup for realistic metallic shine
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    scene.add(ambientLight);
 
-    const geo = new THREE.IcosahedronGeometry(1.3, 3);
-    const mat = new THREE.MeshBasicMaterial({
+    const dirLight1 = new THREE.DirectionalLight(0xffffff, 2.5);
+    dirLight1.position.set(5, 5, 8);
+    scene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(0x008ad8, 1.8);
+    dirLight2.position.set(-5, -5, -4);
+    scene.add(dirLight2);
+
+    const sealGroup = new THREE.Group();
+    scene.add(sealGroup);
+
+    // Outer Gold Accredited Seal Ring
+    const goldRingGeo = new THREE.TorusGeometry(1.3, 0.08, 32, 100);
+    const goldMat = new THREE.MeshStandardMaterial({
+      color: 0xd4af37, // Metallic Gold
+      metalness: 0.9,
+      roughness: 0.15,
+    });
+    const goldRing = new THREE.Mesh(goldRingGeo, goldMat);
+    sealGroup.add(goldRing);
+
+    // Inner Gold Bezel Ring
+    const innerGoldGeo = new THREE.TorusGeometry(1.05, 0.03, 24, 80);
+    const innerGoldRing = new THREE.Mesh(innerGoldGeo, goldMat);
+    sealGroup.add(innerGoldRing);
+
+    // Center Navy Certificate Seal Plate
+    const plateGeo = new THREE.CylinderGeometry(1.02, 1.02, 0.08, 64);
+    const navyMat = new THREE.MeshStandardMaterial({
+      color: 0x0b1b3f, // Deep B4Q Navy
+      metalness: 0.4,
+      roughness: 0.3,
+    });
+    const sealPlate = new THREE.Mesh(plateGeo, navyMat);
+    sealPlate.rotation.x = Math.PI / 2;
+    sealGroup.add(sealPlate);
+
+    // 3D Metallic Shield Emblem in Center
+    const shieldShape = new THREE.Shape();
+    shieldShape.moveTo(0, 0.45);
+    shieldShape.quadraticCurveTo(0.35, 0.45, 0.4, 0.2);
+    shieldShape.quadraticCurveTo(0.4, -0.2, 0, -0.45);
+    shieldShape.quadraticCurveTo(-0.4, -0.2, -0.4, 0.2);
+    shieldShape.quadraticCurveTo(-0.35, 0.45, 0, 0.45);
+
+    const extrudeSettings = { depth: 0.06, bevelEnabled: true, bevelSegments: 3, steps: 1, bevelSize: 0.02, bevelThickness: 0.02 };
+    const shieldGeo = new THREE.ExtrudeGeometry(shieldShape, extrudeSettings);
+    const cyanMat = new THREE.MeshStandardMaterial({
       color: 0x008ad8,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.55,
+      metalness: 0.7,
+      roughness: 0.2,
+      emissive: 0x002b4d,
     });
-    const sphere = new THREE.Mesh(geo, mat);
-    group.add(sphere);
+    const shieldMesh = new THREE.Mesh(shieldGeo, cyanMat);
+    shieldMesh.position.z = 0.04;
+    sealGroup.add(shieldMesh);
 
-    // Inner Core Geometry
-    const coreGeo = new THREE.DodecahedronGeometry(0.7, 0);
-    const coreMat = new THREE.MeshBasicMaterial({
-      color: 0xff4d5a,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.8,
-    });
-    const core = new THREE.Mesh(coreGeo, coreMat);
-    group.add(core);
+    // 4 Orbiting Golden ISO Tokens
+    const tokenGroup = new THREE.Group();
+    sealGroup.add(tokenGroup);
 
-    // Orbit Ring
-    const ringGeo = new THREE.TorusGeometry(1.9, 0.012, 16, 100);
-    const ringMat = new THREE.MeshBasicMaterial({ color: 0x10b981, transparent: true, opacity: 0.7 });
-    const ring = new THREE.Mesh(ringGeo, ringMat);
-    ring.rotation.x = Math.PI / 2.5;
-    group.add(ring);
+    const tokenGeo = new THREE.SphereGeometry(0.08, 16, 16);
+    const tokenMat = new THREE.MeshStandardMaterial({ color: 0xff4d5a, metalness: 0.9, roughness: 0.1 });
+
+    for (let i = 0; i < 4; i++) {
+      const token = new THREE.Mesh(tokenGeo, tokenMat);
+      const angle = (i / 4) * Math.PI * 2;
+      token.position.set(Math.cos(angle) * 1.6, Math.sin(angle) * 1.6, 0);
+      tokenGroup.add(token);
+    }
 
     let mouseX = 0;
     let mouseY = 0;
@@ -93,10 +139,15 @@ export default function FuturisticParallaxStudio() {
     let frameId: number;
     const animate = () => {
       frameId = requestAnimationFrame(animate);
-      group.rotation.y += 0.006 + mouseX * 0.008;
-      group.rotation.x += 0.003 + mouseY * 0.008;
-      core.rotation.y -= 0.01;
-      ring.rotation.z += 0.005;
+
+      // Smooth interactive 3D rotation
+      sealGroup.rotation.y = THREE.MathUtils.lerp(sealGroup.rotation.y, mouseX * 0.4, 0.05);
+      sealGroup.rotation.x = THREE.MathUtils.lerp(sealGroup.rotation.x, -mouseY * 0.4, 0.05);
+
+      // Continuous subtle ambient spinning
+      goldRing.rotation.z += 0.003;
+      tokenGroup.rotation.z -= 0.006;
+
       renderer.render(scene, camera);
     };
     animate();
@@ -139,7 +190,7 @@ export default function FuturisticParallaxStudio() {
           scrollTrigger: {
             trigger: horizontalTrigger,
             pin: true,
-            scrub: 0.5, // Slightly faster, smooth horizontal cards
+            scrub: 0.5,
             end: () => `+=${totalHorizontalScroll + 400}`,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
@@ -153,7 +204,7 @@ export default function FuturisticParallaxStudio() {
       // Vertical Cards Bottom-to-Top Slow Parallax Stacking
       if (verticalStack) {
         const cards = verticalStack.querySelectorAll(".vertical-parallax-card");
-        cards.forEach((card, idx) => {
+        cards.forEach((card) => {
           gsap.fromTo(
             card,
             { y: 120, opacity: 0.2, scale: 0.94 },
@@ -166,7 +217,7 @@ export default function FuturisticParallaxStudio() {
                 trigger: card,
                 start: "top 88%",
                 end: "top 45%",
-                scrub: 1.2, // Slower, silky vertical scroll timing so buttons stay visible!
+                scrub: 1.2,
               }
             }
           );
@@ -182,7 +233,7 @@ export default function FuturisticParallaxStudio() {
       id: "iso-9001",
       code: "ISO 9001:2015",
       name: "Quality Management System",
-      badge: "Global Benchmark",
+      badge: "Quality Benchmark",
       gradient: "from-[#251574] via-[#100836] to-[#008AD8]/40",
       accent: "#008AD8",
       icon: ShieldCheck,
@@ -308,19 +359,19 @@ export default function FuturisticParallaxStudio() {
   return (
     <div className="bg-slate-900 text-white overflow-hidden relative">
       
-      {/* SECTION 1: 3D WEBGL HOLOGRAM & HORIZONTAL PARALLAX SCOPE DECK */}
+      {/* SECTION 1: 3D ACCREDITED CAB MONOGRAM SEAL & HORIZONTAL PARALLAX SCOPE DECK */}
       <div ref={horizontalTriggerRef} className="relative z-10 bg-[#0c0628] overflow-hidden min-h-screen">
-        {/* Background Cyber Grid & Glow */}
+        {/* Background Cyber Grid & Ambient Glow */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
         <div className="absolute top-10 left-1/3 w-[600px] h-[600px] bg-[#008AD8]/15 rounded-full blur-[140px] pointer-events-none" />
 
-        <div className="h-screen flex flex-col justify-between py-8 px-4 sm:px-8 max-w-7xl mx-auto relative z-10">
+        <div className="h-screen flex flex-col justify-between py-6 px-4 sm:px-8 max-w-7xl mx-auto relative z-10">
           
           {/* Top Header Controls Bar */}
-          <div className="flex items-center justify-between shrink-0 pt-4">
+          <div className="flex items-center justify-between shrink-0 pt-2">
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-sky-300 backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-[#FF4D5A] animate-pulse" />
-              <span>3D WEBGL ISO SCOPE PARALLAX STUDIO</span>
+              <Award className="w-4 h-4 text-amber-400" />
+              <span>B4Q ACCREDITED CERTIFICATION BODY (CAB) STUDIO</span>
             </div>
 
             {/* Live Iso Track Dots */}
@@ -332,7 +383,7 @@ export default function FuturisticParallaxStudio() {
                     key={idx}
                     className={`h-2.5 rounded-full transition-all duration-300 ${
                       activeIsoIndex === idx
-                        ? "w-8 bg-gradient-to-r from-sky-400 to-rose-500 shadow-[0_0_12px_rgba(56,189,248,0.8)]"
+                        ? "w-8 bg-gradient-to-r from-amber-400 to-sky-400 shadow-[0_0_12px_rgba(251,191,36,0.8)]"
                         : "w-2.5 bg-white/20"
                     }`}
                   />
@@ -342,16 +393,45 @@ export default function FuturisticParallaxStudio() {
             </div>
           </div>
 
-          {/* Center Content: Left 3D WebGL Canvas + Right Parallax Cards Track */}
-          <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-4">
+          {/* Center Content: Left 3D CAB Monogram Seal + Right Parallax Cards Track */}
+          <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-2">
             
-            {/* Left 3D Holographic WebGL Sphere Viewport */}
-            <div className="lg:col-span-4 hidden lg:flex flex-col items-center justify-center relative bg-white/5 rounded-3xl p-6 border border-white/10 backdrop-blur-xl">
-              <div className="w-full h-[320px]" ref={threeCanvasRef} />
-              <div className="px-4 py-1.5 rounded-full bg-black/60 border border-white/20 text-[10px] font-mono text-sky-300 flex items-center gap-2">
-                <Activity className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-                <span>INTERACTIVE THREE.JS MATRIX</span>
+            {/* Left 3D WebGL Accredited Certification Body Monogram Seal Card */}
+            <div className="lg:col-span-4 hidden lg:flex flex-col items-center justify-center relative bg-gradient-to-b from-white/10 to-white/5 rounded-3xl p-6 border border-white/15 backdrop-blur-xl shadow-2xl space-y-4">
+              
+              {/* Top CAB Emblem Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-[10px] font-mono font-bold uppercase tracking-wider">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                <span>OFFICIAL CAB MONOGRAM SEAL</span>
               </div>
+
+              {/* 3D WebGL Canvas Rendering Metallic Seal */}
+              <div className="w-full h-[240px] relative flex items-center justify-center" ref={threeCanvasRef}>
+                {/* Official Logo overlay in center */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                  <div className="w-16 h-16 rounded-full bg-white p-2 shadow-2xl border-2 border-amber-400/80 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src="/logo.jpg"
+                      alt="B4Q Official Seal Monogram"
+                      width={56}
+                      height={56}
+                      className="object-contain rounded-full"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom CAB Verification Pill */}
+              <div className="w-full pt-3 border-t border-white/10 space-y-1.5 text-center">
+                <div className="flex items-center justify-center gap-2 text-xs font-mono font-bold text-white">
+                  <Check className="w-4 h-4 text-emerald-400" />
+                  <span>ISO/IEC 17021-1 ACCREDITED</span>
+                </div>
+                <div className="text-[10px] font-mono text-slate-300">
+                  Exemplar Global Partner • UK, IN, US, SG
+                </div>
+              </div>
+
             </div>
 
             {/* Right Horizontal Parallax Track */}
@@ -359,16 +439,16 @@ export default function FuturisticParallaxStudio() {
               <div ref={horizontalTrackRef} className="flex gap-6 items-center shrink-0 pr-24">
                 
                 {/* Intro Headline Card */}
-                <div className="w-[320px] sm:w-[400px] shrink-0 space-y-4 pr-4">
+                <div className="w-[300px] sm:w-[380px] shrink-0 space-y-4 pr-4">
                   <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">
-                    <Layers className="w-3.5 h-3.5" />
-                    <span>Awwwards 3D Motion Deck</span>
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>Accredited Scope Deck</span>
                   </div>
                   <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-                    Fast Parallax ISO Scope Expedition.
+                    Accredited ISO Certification Scope.
                   </h2>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    Audited by B4Q accredited lead auditors across UK, India, USA & Singapore. Scroll horizontally to explore standard highlights.
+                    Audited by B4Q accredited lead auditors across global enterprise sectors in UK, IN, US & SG.
                   </p>
                   <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
@@ -430,9 +510,9 @@ export default function FuturisticParallaxStudio() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="flex items-center justify-between text-xs font-mono text-slate-400 shrink-0 pb-2">
-            <span>B4Q MANAGEMENT LTD • GLOBAL ACCREDITED SCOPE</span>
-            <span>EXEMPLAR GLOBAL PARTNER</span>
+          <div className="flex items-center justify-between text-xs font-mono text-slate-400 shrink-0 pb-2 border-t border-white/10 pt-3">
+            <span>B4Q MANAGEMENT LTD • AUTHORISED ISO CERTIFICATION BODY</span>
+            <span>EXEMPLAR GLOBAL ACCREDITED PARTNER</span>
           </div>
 
         </div>
@@ -459,7 +539,6 @@ export default function FuturisticParallaxStudio() {
           {/* Vertical Parallax Cards Stack */}
           <div ref={verticalStackRef} className="space-y-8 max-w-5xl mx-auto">
             {processSteps.map((s, idx) => {
-              const Icon = s.icon;
               return (
                 <div
                   key={s.step}
