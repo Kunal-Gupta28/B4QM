@@ -22,8 +22,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
         e.preventDefault();
         if (isOpen) {
           onClose();
-        } else {
-          // Open triggered from parent state
         }
       }
       if (e.key === "Escape" && isOpen) {
@@ -36,7 +34,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
 
   // Filtered Results
   const filteredStandards = useMemo(() => {
-    if (!query) return ISO_STANDARDS;
+    if (!query) return ISO_STANDARDS.slice(0, 10);
     const q = query.toLowerCase();
     return ISO_STANDARDS.filter(
       (s) => s.code.toLowerCase().includes(q) || s.name.toLowerCase().includes(q) || s.description.toLowerCase().includes(q)
@@ -68,34 +66,34 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4">
-          {/* Backdrop */}
+        <div className="fixed inset-0 z-50 flex items-start justify-center pt-[8dvh] px-4">
+          {/* Dark Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-brand-navyDark/80 backdrop-blur-md"
+            className="fixed inset-0 bg-[#0c0628]/80 backdrop-blur-md"
           />
 
           {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+            initial={{ opacity: 0, scale: 0.96, y: -15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -20 }}
+            exit={{ opacity: 0, scale: 0.96, y: -15 }}
             transition={{ duration: 0.2 }}
-            className="relative w-full max-w-2xl bg-brand-navyDark text-slate-100 rounded-2xl shadow-2xl border border-white/20 overflow-hidden z-10 font-sans"
+            className="relative w-full max-w-2xl bg-[#120a3e] text-slate-100 rounded-3xl shadow-2xl border border-white/20 overflow-hidden z-10 font-sans"
           >
             {/* Search Input Bar */}
-            <div className="flex items-center px-4 py-3.5 border-b border-white/10 bg-slate-900/90">
-              <Search className="w-5 h-5 text-brand-coral shrink-0 mr-3" />
+            <div className="flex items-center px-5 py-4 border-b border-white/10 bg-[#0c0628]/90">
+              <Search className="w-5 h-5 text-[#FF4D5A] shrink-0 mr-3" />
               <input
                 type="text"
                 autoFocus
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search ISO standards, auditor courses, documents, or verify certificate..."
-                className="w-full bg-transparent text-sm text-white placeholder-slate-400 focus:outline-none"
+                className="w-full bg-transparent text-sm text-white placeholder-slate-400 focus:outline-none font-medium"
               />
               {query ? (
                 <button
@@ -105,66 +103,71 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
                   <X className="w-4 h-4" />
                 </button>
               ) : (
-                <kbd className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono text-slate-400 bg-white/10 rounded border border-white/10">
+                <kbd className="hidden sm:inline-block px-2.5 py-1 text-[10px] font-mono text-slate-300 bg-white/10 rounded-lg border border-white/10">
                   ESC to exit
                 </kbd>
               )}
             </div>
 
-            {/* Content Results */}
-            <div className="max-h-[60vh] overflow-y-auto p-4 space-y-6 divide-y divide-white/10">
+            {/* Scrollable Content Results Container using dvh */}
+            <div className="max-h-[65dvh] overflow-y-auto p-5 space-y-6 divide-y divide-white/10">
               {/* Quick Action Bar */}
-              <div className="space-y-2">
-                <span className="text-[11px] font-mono text-brand-coral uppercase tracking-wider font-semibold flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" /> Quick Actions
+              <div className="space-y-2.5">
+                <span className="text-[11px] font-mono text-[#FF4D5A] uppercase tracking-wider font-semibold flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-[#FF4D5A]" /> Quick Actions
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <button
                     onClick={() => handleSelect("/verify")}
-                    className="p-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-left flex items-center justify-between group transition-all"
+                    className="p-3 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-left flex items-center justify-between group transition-all"
                   >
                     <div className="flex items-center gap-2.5">
                       <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                      <span className="text-xs font-semibold text-emerald-300">Verify Certificate Registry</span>
+                      <span className="text-xs font-bold text-emerald-300">Verify Certificate Registry</span>
                     </div>
                     <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
                   </button>
                   <button
                     onClick={() => handleSelect("/get-a-quote")}
-                    className="p-2.5 rounded-xl bg-brand-coral/10 hover:bg-brand-coral/20 border border-brand-coral/30 text-left flex items-center justify-between group transition-all"
+                    className="p-3 rounded-2xl bg-[#FF4D5A]/15 hover:bg-[#FF4D5A]/25 border border-[#FF4D5A]/30 text-left flex items-center justify-between group transition-all"
                   >
                     <div className="flex items-center gap-2.5">
-                      <Sparkles className="w-4 h-4 text-brand-coral" />
-                      <span className="text-xs font-semibold text-brand-coral">Get Certification Quote</span>
+                      <Sparkles className="w-4 h-4 text-[#FF4D5A]" />
+                      <span className="text-xs font-bold text-[#FF4D5A]">Get Certification Quote</span>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-brand-coral group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FF4D5A] group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
 
-              {/* ISO Standards */}
+              {/* ISO Management Standards */}
               {filteredStandards.length > 0 && (
-                <div className="pt-4 space-y-2">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">
-                    ISO Management Standards ({filteredStandards.length})
-                  </span>
+                <div className="pt-5 space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-sky-400 uppercase tracking-wider font-semibold">
+                      ISO Management Standards ({filteredStandards.length})
+                    </span>
+                    <button onClick={() => handleSelect("/certification")} className="text-[10px] font-mono text-slate-400 hover:text-white">
+                      View All 30 →
+                    </button>
+                  </div>
                   <div className="space-y-1.5">
                     {filteredStandards.map((std) => (
                       <button
                         key={std.id}
                         onClick={() => handleSelect(`/certification/${std.id}`)}
-                        className="w-full p-2.5 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10 flex items-center justify-between text-left group transition-all"
+                        className="w-full p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-between text-left group transition-all"
                       >
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs text-brand-coral font-bold">{std.code}</span>
-                            <span className="text-xs font-semibold text-white group-hover:text-brand-coral transition-colors">
+                            <span className="font-mono text-xs text-sky-400 font-bold">{std.code}</span>
+                            <span className="text-xs font-bold text-white group-hover:text-sky-300 transition-colors">
                               {std.name}
                             </span>
                           </div>
-                          <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">{std.outcome}</p>
+                          <p className="text-[11px] text-slate-300 line-clamp-1 mt-0.5">{std.outcome}</p>
                         </div>
-                        <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-white shrink-0 ml-2" />
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-white shrink-0 ml-2" />
                       </button>
                     ))}
                   </div>
@@ -173,8 +176,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
 
               {/* Auditor Courses */}
               {filteredCourses.length > 0 && (
-                <div className="pt-4 space-y-2">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">
+                <div className="pt-5 space-y-2.5">
+                  <span className="text-[11px] font-mono text-rose-400 uppercase tracking-wider font-semibold">
                     Exemplar Global Courses ({filteredCourses.length})
                   </span>
                   <div className="space-y-1.5">
@@ -182,14 +185,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
                       <button
                         key={crs.id}
                         onClick={() => handleSelect("/training")}
-                        className="w-full p-2.5 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10 flex items-center justify-between text-left group transition-all"
+                        className="w-full p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-between text-left group transition-all"
                       >
                         <div className="flex items-center gap-3">
-                          <div className="p-2 rounded-lg bg-indigo-500/20 text-indigo-400">
+                          <div className="p-2 rounded-lg bg-indigo-500/20 text-indigo-300">
                             <GraduationCap className="w-4 h-4" />
                           </div>
                           <div>
-                            <span className="text-xs font-semibold text-white group-hover:text-brand-coral transition-colors">
+                            <span className="text-xs font-bold text-white group-hover:text-rose-400 transition-colors">
                               {crs.title}
                             </span>
                             <div className="flex items-center gap-2 text-[10px] text-slate-400 font-mono mt-0.5">
@@ -199,7 +202,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
                             </div>
                           </div>
                         </div>
-                        <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-white shrink-0" />
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-white shrink-0" />
                       </button>
                     ))}
                   </div>
@@ -208,8 +211,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
 
               {/* Public Documents */}
               {filteredDocs.length > 0 && (
-                <div className="pt-4 space-y-2">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">
+                <div className="pt-5 space-y-2.5">
+                  <span className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider font-semibold">
                     Public Document Library ({filteredDocs.length})
                   </span>
                   <div className="space-y-1.5">
@@ -217,7 +220,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
                       <button
                         key={doc.id}
                         onClick={() => handleSelect("/resources/documents")}
-                        className="w-full p-2.5 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10 flex items-center justify-between text-left group transition-all"
+                        className="w-full p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-between text-left group transition-all"
                       >
                         <div className="flex items-center gap-3">
                           <div className="p-2 rounded-lg bg-emerald-500/20 text-emerald-400">
@@ -239,7 +242,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
             </div>
 
             {/* Footer hint */}
-            <div className="p-3 bg-slate-950 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+            <div className="p-3.5 bg-[#0c0628] border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-mono">
               <span>B4Q Public Search Index</span>
               <span>Select items to navigate</span>
             </div>

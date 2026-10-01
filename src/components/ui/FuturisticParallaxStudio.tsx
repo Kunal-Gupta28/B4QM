@@ -347,12 +347,12 @@ export default function FuturisticParallaxStudio() {
     <div className="bg-slate-900 text-white overflow-hidden relative">
       
       {/* SECTION 1: 3D ACCREDITED CAB MONOGRAM SEAL & HORIZONTAL PARALLAX SCOPE DECK */}
-      <div ref={horizontalTriggerRef} className="relative z-10 bg-[#0c0628] overflow-hidden min-h-screen">
+      <div ref={horizontalTriggerRef} className="relative z-10 bg-[#0c0628] overflow-hidden min-h-[100dvh]">
         {/* Background Cyber Grid & Ambient Glow */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
         <div className="absolute top-10 left-1/3 w-[600px] h-[600px] bg-[#008AD8]/15 rounded-full blur-[140px] pointer-events-none" />
 
-        <div className="h-screen flex flex-col justify-between py-6 px-4 sm:px-8 max-w-7xl mx-auto relative z-10">
+        <div className="h-[100dvh] flex flex-col justify-between py-6 px-4 sm:px-8 max-w-7xl mx-auto relative z-10">
           
           {/* Top Header Controls Bar */}
           <div className="flex items-center justify-between shrink-0 pt-2">
@@ -393,7 +393,7 @@ export default function FuturisticParallaxStudio() {
               </div>
 
               {/* 3D WebGL Canvas Rendering Metallic Seal with Large Center Logo */}
-              <div className="w-full h-[280px] relative flex items-center justify-center" ref={threeCanvasRef}>
+              <div className="w-full h-[35dvh] min-h-[260px] relative flex items-center justify-center" ref={threeCanvasRef}>
                 
                 {/* LARGER PROMINENT OFFICIAL B4Q LOGO MONOGRAM */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
