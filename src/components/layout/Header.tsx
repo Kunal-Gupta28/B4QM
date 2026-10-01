@@ -79,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             : "py-4 bg-white border-b border-slate-200/80"
         }`}
       >
-        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] flex items-center justify-between">
+        <div className="w-full max-w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between">
           
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
