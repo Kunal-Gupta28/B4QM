@@ -62,7 +62,6 @@ export const Footer: React.FC = () => {
               <li><Link href="/certification/iso-45001" className="hover:text-[#008AD8] transition-colors">ISO 45001:2018 Health & Safety</Link></li>
               <li><Link href="/certification/iso-22000" className="hover:text-[#008AD8] transition-colors">ISO 22000:2018 Food Safety</Link></li>
               <li><Link href="/certification/iso-27001" className="hover:text-[#008AD8] transition-colors">ISO 27001:2022 ISMS</Link></li>
-              <li><Link href="/sectors" className="text-amber-400 font-bold hover:underline">Browse All 32 IAF Sectors →</Link></li>
             </ul>
           </div>
 
