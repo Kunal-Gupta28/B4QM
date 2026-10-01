@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import Image from "next/image";
 
 export default function AnimatedPageLoader() {
   const [progress, setProgress] = useState(0);
@@ -12,8 +11,8 @@ export default function AnimatedPageLoader() {
   const logoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Animate progress counter from 0 to 100
-    const duration = 1200; // ms
+    // Fast, crisp loading counter (800ms)
+    const duration = 800; // ms
     const startTime = performance.now();
 
     const updateCounter = (now: number) => {
@@ -24,26 +23,30 @@ export default function AnimatedPageLoader() {
       if (current < 100) {
         requestAnimationFrame(updateCounter);
       } else {
-        // Trigger GSAP exit curtain animation
+        // Trigger smooth GSAP curtain exit
         const ctx = gsap.context(() => {
           const tl = gsap.timeline({
             onComplete: () => setIsDone(true),
           });
 
           tl.to(logoRef.current, {
-            scale: 1.1,
+            scale: 1.05,
             opacity: 0,
-            duration: 0.4,
+            duration: 0.3,
             ease: "power2.inOut",
           })
-            .to(textRef.current, {
-              y: -30,
-              opacity: 0,
-              duration: 0.3,
-            }, "<")
+            .to(
+              textRef.current,
+              {
+                y: -20,
+                opacity: 0,
+                duration: 0.25,
+              },
+              "<"
+            )
             .to(overlayRef.current, {
               yPercent: -100,
-              duration: 0.8,
+              duration: 0.7,
               ease: "power4.inOut",
             });
         });
@@ -60,52 +63,53 @@ export default function AnimatedPageLoader() {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-[#251574] text-white px-6 py-12 select-none overflow-hidden"
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-white text-slate-900 px-6 py-12 select-none overflow-hidden"
     >
-      {/* Subtle Background Glow Rings */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Soft Ambient Radial Background Glows (No heavy purple) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-50 rounded-full blur-3xl pointer-events-none opacity-80" />
+      <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-rose-50 rounded-full blur-3xl pointer-events-none opacity-60" />
 
       {/* Top Header */}
-      <div className="w-full flex justify-between items-center max-w-7xl opacity-80 text-xs font-mono uppercase tracking-widest text-sky-200">
-        <span>B4Q Management Ltd</span>
-        <span>Accredited Certification Body</span>
+      <div className="w-full flex justify-between items-center max-w-7xl font-mono text-xs uppercase tracking-widest text-slate-500 font-medium z-10">
+        <span className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          B4Q Management Ltd
+        </span>
+        <span className="text-[#008AD8] font-bold">Accredited ISO Body</span>
       </div>
 
-      {/* Center Brand Identity */}
+      {/* Center Brand Identity - Matching Header Logo Exactly */}
       <div className="flex flex-col items-center gap-6 relative z-10">
         <div
           ref={logoRef}
-          className="relative w-28 h-28 p-4 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl flex items-center justify-center"
+          className="p-5 bg-white rounded-3xl border border-slate-200 shadow-xl flex items-center justify-center"
         >
-          <Image
+          <img
             src="/logo.svg"
-            alt="B4Q Logo"
-            width={80}
-            height={80}
-            priority
-            className="object-contain"
+            alt="B4Q Management Logo"
+            className="h-16 w-auto object-contain"
           />
         </div>
 
-        <div ref={textRef} className="text-center">
-          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white font-sans">
-            B4Q Management Ltd.
+        <div ref={textRef} className="text-center space-y-1">
+          <h2 className="text-2xl md:text-3xl font-serif font-bold tracking-tight text-[#251574]">
+            B4Q <span className="text-[#008AD8] font-sans font-normal text-xl">Management</span>
           </h2>
-          <p className="text-sm text-sky-200 font-medium mt-1">
-            Assured Precision • Global Standards
+          <p className="text-xs font-mono text-slate-500 uppercase tracking-wider">
+            Assured ISO Certification • UK | IN | US | SG
           </p>
         </div>
       </div>
 
       {/* Bottom Progress Bar & Counter */}
       <div className="w-full max-w-md relative z-10">
-        <div className="flex justify-between items-center mb-2 font-mono text-sm text-sky-200">
-          <span>INITIALIZING PLATFORM</span>
-          <span className="font-bold text-white text-base">{progress}%</span>
+        <div className="flex justify-between items-center mb-2 font-mono text-xs text-slate-600 font-semibold">
+          <span className="text-[#251574]">INITIALIZING PLATFORM</span>
+          <span className="font-bold text-[#FF4D5A] text-sm">{progress}%</span>
         </div>
-        <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/10">
+        <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden p-0.5 border border-slate-200 shadow-inner">
           <div
-            className="h-full bg-gradient-to-r from-sky-400 via-emerald-400 to-rose-500 rounded-full transition-all duration-75 ease-out shadow-[0_0_12px_rgba(56,189,248,0.8)]"
+            className="h-full bg-gradient-to-r from-[#251574] via-[#008AD8] to-[#FF4D5A] rounded-full transition-all duration-75 ease-out shadow-sm"
             style={{ width: `${progress}%` }}
           />
         </div>
