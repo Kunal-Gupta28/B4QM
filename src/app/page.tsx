@@ -344,17 +344,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Browse All Standards CTA Button */}
-          <div className="mt-12 text-center">
-            <Link
-              href="/certification"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#251574] hover:bg-[#008AD8] text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all"
-            >
-              <span>Explore All Accredited ISO Standards</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-
         </div>
       </section>
 
