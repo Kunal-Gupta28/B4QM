@@ -258,12 +258,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
               </AnimatePresence>
             </div>
 
-            {/* RENAMED LINK: Industries */}
+            {/* RENAMED LINK: Industries We Serve */}
             <Link
               href="/sectors"
               className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
             >
-              Industries
+              Industries We Serve
             </Link>
 
             <Link href="/about" className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
@@ -344,7 +344,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                   Auditor Training
                 </Link>
                 <Link href="/sectors" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
-                  Industries (32 IAF Sectors)
+                  Industries We Serve (32 IAF Sectors)
                 </Link>
                 <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
                   About B4Q
