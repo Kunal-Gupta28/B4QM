@@ -18,11 +18,8 @@ import {
   Award,
   RefreshCw,
   FileCheck2,
-  Activity,
   Zap,
-  Globe2,
   Eye,
-  Layers,
   Check,
   Building2
 } from "lucide-react";
@@ -38,92 +35,80 @@ export default function FuturisticParallaxStudio() {
   const [activeIsoIndex, setActiveIsoIndex] = useState(0);
   const [activeStepModal, setActiveStepModal] = useState<number | null>(null);
 
-  // 1. Three.js WebGL Accredited Certification Body Monogram Seal Setup
+  // 1. Three.js Face-On Metallic Accredited CAB Monogram Seal Setup
   useEffect(() => {
     const container = threeCanvasRef.current;
     if (!container) return;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 4.2;
+    camera.position.z = 3.6;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Studio Lighting setup for realistic metallic shine
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    // Studio Lighting setup
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
     scene.add(ambientLight);
 
     const dirLight1 = new THREE.DirectionalLight(0xffffff, 2.5);
-    dirLight1.position.set(5, 5, 8);
+    dirLight1.position.set(3, 4, 8);
     scene.add(dirLight1);
 
-    const dirLight2 = new THREE.DirectionalLight(0x008ad8, 1.8);
-    dirLight2.position.set(-5, -5, -4);
+    const dirLight2 = new THREE.DirectionalLight(0x008ad8, 2.0);
+    dirLight2.position.set(-4, -3, 4);
     scene.add(dirLight2);
 
     const sealGroup = new THREE.Group();
     scene.add(sealGroup);
 
-    // Outer Gold Accredited Seal Ring
-    const goldRingGeo = new THREE.TorusGeometry(1.3, 0.08, 32, 100);
+    // Face-on Metallic Gold Outer Seal Ring
+    const goldRingGeo = new THREE.TorusGeometry(1.42, 0.045, 32, 100);
     const goldMat = new THREE.MeshStandardMaterial({
       color: 0xd4af37, // Metallic Gold
-      metalness: 0.9,
-      roughness: 0.15,
+      metalness: 0.95,
+      roughness: 0.12,
     });
     const goldRing = new THREE.Mesh(goldRingGeo, goldMat);
     sealGroup.add(goldRing);
 
-    // Inner Gold Bezel Ring
-    const innerGoldGeo = new THREE.TorusGeometry(1.05, 0.03, 24, 80);
-    const innerGoldRing = new THREE.Mesh(innerGoldGeo, goldMat);
-    sealGroup.add(innerGoldRing);
-
-    // Center Navy Certificate Seal Plate
-    const plateGeo = new THREE.CylinderGeometry(1.02, 1.02, 0.08, 64);
-    const navyMat = new THREE.MeshStandardMaterial({
-      color: 0x0b1b3f, // Deep B4Q Navy
-      metalness: 0.4,
-      roughness: 0.3,
-    });
-    const sealPlate = new THREE.Mesh(plateGeo, navyMat);
-    sealPlate.rotation.x = Math.PI / 2;
-    sealGroup.add(sealPlate);
-
-    // 3D Metallic Shield Emblem in Center
-    const shieldShape = new THREE.Shape();
-    shieldShape.moveTo(0, 0.45);
-    shieldShape.quadraticCurveTo(0.35, 0.45, 0.4, 0.2);
-    shieldShape.quadraticCurveTo(0.4, -0.2, 0, -0.45);
-    shieldShape.quadraticCurveTo(-0.4, -0.2, -0.4, 0.2);
-    shieldShape.quadraticCurveTo(-0.35, 0.45, 0, 0.45);
-
-    const extrudeSettings = { depth: 0.06, bevelEnabled: true, bevelSegments: 3, steps: 1, bevelSize: 0.02, bevelThickness: 0.02 };
-    const shieldGeo = new THREE.ExtrudeGeometry(shieldShape, extrudeSettings);
+    // Face-on Cyan Inner Glowing Ring
+    const cyanRingGeo = new THREE.TorusGeometry(1.24, 0.025, 24, 80);
     const cyanMat = new THREE.MeshStandardMaterial({
       color: 0x008ad8,
-      metalness: 0.7,
+      metalness: 0.8,
       roughness: 0.2,
-      emissive: 0x002b4d,
+      emissive: 0x003d66,
     });
-    const shieldMesh = new THREE.Mesh(shieldGeo, cyanMat);
-    shieldMesh.position.z = 0.04;
-    sealGroup.add(shieldMesh);
+    const cyanRing = new THREE.Mesh(cyanRingGeo, cyanMat);
+    sealGroup.add(cyanRing);
 
-    // 4 Orbiting Golden ISO Tokens
+    // Inner Dotted Orbit Ring
+    const dotsGroup = new THREE.Group();
+    sealGroup.add(dotsGroup);
+    const dotGeo = new THREE.SphereGeometry(0.035, 16, 16);
+    const dotMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.9, roughness: 0.1 });
+
+    for (let i = 0; i < 12; i++) {
+      const dot = new THREE.Mesh(dotGeo, dotMat);
+      const angle = (i / 12) * Math.PI * 2;
+      dot.position.set(Math.cos(angle) * 1.34, Math.sin(angle) * 1.34, 0);
+      dotsGroup.add(dot);
+    }
+
+    // 4 Orbiting Golden ISO Scope Badges
     const tokenGroup = new THREE.Group();
     sealGroup.add(tokenGroup);
 
-    const tokenGeo = new THREE.SphereGeometry(0.08, 16, 16);
-    const tokenMat = new THREE.MeshStandardMaterial({ color: 0xff4d5a, metalness: 0.9, roughness: 0.1 });
+    const tokenGeo = new THREE.SphereGeometry(0.075, 16, 16);
+    const tokenMat = new THREE.MeshStandardMaterial({ color: 0xff4d5a, metalness: 0.9, roughness: 0.15 });
 
     for (let i = 0; i < 4; i++) {
       const token = new THREE.Mesh(tokenGeo, tokenMat);
       const angle = (i / 4) * Math.PI * 2;
-      token.position.set(Math.cos(angle) * 1.6, Math.sin(angle) * 1.6, 0);
+      token.position.set(Math.cos(angle) * 1.55, Math.sin(angle) * 1.55, 0);
       tokenGroup.add(token);
     }
 
@@ -140,13 +125,15 @@ export default function FuturisticParallaxStudio() {
     const animate = () => {
       frameId = requestAnimationFrame(animate);
 
-      // Smooth interactive 3D rotation
-      sealGroup.rotation.y = THREE.MathUtils.lerp(sealGroup.rotation.y, mouseX * 0.4, 0.05);
-      sealGroup.rotation.x = THREE.MathUtils.lerp(sealGroup.rotation.x, -mouseY * 0.4, 0.05);
+      // Controlled micro-tilt so the seal stays facing forward and NEVER flips sideways
+      sealGroup.rotation.y = THREE.MathUtils.lerp(sealGroup.rotation.y, mouseX * 0.12, 0.05);
+      sealGroup.rotation.x = THREE.MathUtils.lerp(sealGroup.rotation.x, -mouseY * 0.12, 0.05);
 
-      // Continuous subtle ambient spinning
+      // Smooth face-on spinning rings
       goldRing.rotation.z += 0.003;
-      tokenGroup.rotation.z -= 0.006;
+      cyanRing.rotation.z -= 0.005;
+      dotsGroup.rotation.z += 0.002;
+      tokenGroup.rotation.z -= 0.004;
 
       renderer.render(scene, camera);
     };
@@ -397,28 +384,31 @@ export default function FuturisticParallaxStudio() {
           <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-2">
             
             {/* Left 3D WebGL Accredited Certification Body Monogram Seal Card */}
-            <div className="lg:col-span-4 hidden lg:flex flex-col items-center justify-center relative bg-gradient-to-b from-white/10 to-white/5 rounded-3xl p-6 border border-white/15 backdrop-blur-xl shadow-2xl space-y-4">
+            <div className="lg:col-span-4 hidden lg:flex flex-col items-center justify-center relative bg-gradient-to-b from-white/12 to-white/5 rounded-3xl p-6 border border-white/20 backdrop-blur-xl shadow-2xl space-y-4">
               
               {/* Top CAB Emblem Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-[10px] font-mono font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm">
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
                 <span>OFFICIAL CAB MONOGRAM SEAL</span>
               </div>
 
-              {/* 3D WebGL Canvas Rendering Metallic Seal */}
-              <div className="w-full h-[240px] relative flex items-center justify-center" ref={threeCanvasRef}>
-                {/* Official Logo overlay in center */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <div className="w-16 h-16 rounded-full bg-white p-2 shadow-2xl border-2 border-amber-400/80 flex items-center justify-center overflow-hidden">
+              {/* 3D WebGL Canvas Rendering Metallic Seal with Large Center Logo */}
+              <div className="w-full h-[280px] relative flex items-center justify-center" ref={threeCanvasRef}>
+                
+                {/* LARGER PROMINENT OFFICIAL B4Q LOGO MONOGRAM */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-white p-3 shadow-[0_0_35px_rgba(245,158,11,0.45)] border-4 border-amber-400 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-105">
                     <Image
                       src="/logo.jpg"
                       alt="B4Q Official Seal Monogram"
-                      width={56}
-                      height={56}
+                      width={128}
+                      height={128}
                       className="object-contain rounded-full"
+                      priority
                     />
                   </div>
                 </div>
+
               </div>
 
               {/* Bottom CAB Verification Pill */}
@@ -581,7 +571,7 @@ export default function FuturisticParallaxStudio() {
                         onClick={() => setActiveStepModal(idx)}
                         className="w-full sm:w-auto px-6 py-3.5 bg-[#251574] hover:bg-[#008AD8] text-white font-bold text-xs rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 group-hover:scale-[1.03]"
                       >
-                        <Eye className="w-4 h-4 text-sky-300" />
+                        <Eye className="w-4 h-4 text-sky-[#008AD8]" />
                         <span>View Sample Deliverable</span>
                       </button>
 
