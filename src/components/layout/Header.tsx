@@ -194,69 +194,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
               </AnimatePresence>
             </div>
 
-            {/* Auditor Training Mega Menu Trigger */}
-            <div className="relative" onMouseEnter={() => setActiveMenu("training")}>
-              <button
-                className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-full transition-colors ${
-                  activeMenu === "training" ? "bg-slate-100 text-[#251574]" : "text-slate-700 hover:text-[#251574] hover:bg-slate-100"
-                }`}
-              >
-                Auditor Training
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeMenu === "training" ? "rotate-180 text-[#FF4D5A]" : ""}`} />
-              </button>
-
-              <AnimatePresence>
-                {activeMenu === "training" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute top-full left-0 w-[600px] max-h-[70dvh] overflow-y-auto bg-white border border-slate-200 rounded-2xl shadow-2xl p-6 mt-2 text-slate-900 grid grid-cols-2 gap-4 z-50"
-                  >
-                    <Link
-                      href="/training"
-                      className="p-4 rounded-xl hover:bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all group"
-                    >
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="p-2 rounded-lg bg-red-50 text-[#FF4D5A]">
-                          <GraduationCap className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#FF4D5A] transition-colors">
-                            Lead Auditor Courses
-                          </h4>
-                          <span className="text-[11px] text-[#008AD8] font-mono font-bold">5 Days · 40 Hrs</span>
-                        </div>
-                      </div>
-                      <p className="text-xs text-slate-600 leading-normal">
-                        Exemplar Global authorised lead auditor courses for ISO 27001, 9001, 14001 & 45001.
-                      </p>
-                    </Link>
-
-                    <Link
-                      href="/training"
-                      className="p-4 rounded-xl hover:bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all group"
-                    >
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="p-2 rounded-lg bg-indigo-50 text-[#251574]">
-                          <FileCheck className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#FF4D5A] transition-colors">
-                            Internal Auditor Courses
-                          </h4>
-                          <span className="text-[11px] text-indigo-700 font-mono font-semibold">2 Days · 16 Hrs</span>
-                        </div>
-                      </div>
-                      <p className="text-xs text-slate-600 leading-normal">
-                        Practical internal auditing techniques, checklist creation, and NCR reporting.
-                      </p>
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            {/* Direct Link: Auditor Training */}
+            <Link
+              href="/training"
+              className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
+            >
+              Auditor Training
+            </Link>
 
             {/* RENAMED LINK: Industries We Serve */}
             <Link
