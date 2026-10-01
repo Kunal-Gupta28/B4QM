@@ -197,7 +197,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             {/* Direct Link: Auditor Training */}
             <Link
               href="/training"
-              className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
+              className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
             >
               Auditor Training
             </Link>
@@ -205,18 +205,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             {/* RENAMED LINK: Industries We Serve */}
             <Link
               href="/sectors"
-              className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
+              className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
             >
               Industries We Serve
             </Link>
 
-            <Link href="/about" className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+            <Link href="/about" className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
               About
             </Link>
-            <Link href="/resources/documents" className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+            <Link href="/resources/documents" className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
               General
             </Link>
-            <Link href="/contact" className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+            <Link href="/contact" className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
               Contact
             </Link>
           </nav>
