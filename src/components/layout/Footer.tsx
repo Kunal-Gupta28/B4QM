@@ -8,7 +8,7 @@ import { CORPORATE_METRICS } from "@/lib/data";
 export const Footer: React.FC = () => {
   return (
     <footer className="w-full max-w-full bg-[#180C4F] text-slate-300 border-t border-white/10 pt-16 pb-12">
-      <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%]">
+      <div className="w-full max-w-full px-4 sm:px-8 lg:px-12">
         
         {/* Performance Metrics Strip */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 mb-12">
