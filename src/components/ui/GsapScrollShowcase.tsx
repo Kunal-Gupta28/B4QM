@@ -114,7 +114,7 @@ export default function GsapScrollShowcase() {
             </div>
 
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Uncompromising ISO Accreditation
+              ISO Accreditation
             </h3>
             <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-8 max-w-lg">
               Operating under strict ISO/IEC 17021-1 standards with zero conflict of interest. Our lead auditors evaluate management systems against rigorous global standards.

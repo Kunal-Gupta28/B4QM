@@ -94,9 +94,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
               <span className="font-serif text-lg font-bold tracking-tight text-[#251574] leading-none">
                 B4Q <span className="text-[#008AD8] font-sans font-normal text-xs">Management</span>
               </span>
-              <span className="text-[9px] text-slate-500 font-mono tracking-wider uppercase mt-1">
-                Assured Certification
-              </span>
             </div>
           </Link>
 
