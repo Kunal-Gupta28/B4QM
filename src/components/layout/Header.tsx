@@ -293,6 +293,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
               </AnimatePresence>
             </div>
 
+            <Link href="/sectors" className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+              32 Sectors
+            </Link>
             <Link href="/about" className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
               About
             </Link>

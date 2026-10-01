@@ -5,7 +5,7 @@ export interface ISOStandard {
   code: string;
   name: string;
   shortName: string;
-  category: "Quality & Operations" | "Information Security & Privacy" | "Health & Environment" | "IT Services";
+  category: string;
   description: string;
   outcome: string;
   clauseChip: string;
