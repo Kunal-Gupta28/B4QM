@@ -15,9 +15,9 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="bg-white p-2 rounded-xl shadow-md">
                 <img
-                  src="/logo.svg"
-                  alt="B4Q Management Logo"
-                  className="h-9 w-auto object-contain"
+                  src="/logo.jpg"
+                  alt="B4Q Management Ltd Logo"
+                  className="h-10 w-auto object-contain rounded-md"
                 />
               </div>
               <div>

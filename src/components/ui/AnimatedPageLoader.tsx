@@ -82,12 +82,12 @@ export default function AnimatedPageLoader() {
       <div className="flex flex-col items-center gap-6 relative z-10">
         <div
           ref={logoRef}
-          className="p-5 bg-white rounded-3xl border border-slate-200 shadow-xl flex items-center justify-center"
+          className="p-4 bg-white rounded-3xl border border-slate-200 shadow-xl flex items-center justify-center overflow-hidden"
         >
           <img
-            src="/logo.svg"
-            alt="B4Q Management Logo"
-            className="h-16 w-auto object-contain"
+            src="/logo.jpg"
+            alt="B4Q Management Ltd Logo"
+            className="h-20 w-auto object-contain rounded-xl"
           />
         </div>
 

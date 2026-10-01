@@ -144,13 +144,11 @@ export default function LiveBadgeGenerator() {
               {/* Official Seal Ring Header */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-6 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-slate-900 p-2 shadow-md flex items-center justify-center shrink-0">
-                    <Image
-                      src="/logo.svg"
-                      alt="B4Q Monogram"
-                      width={36}
-                      height={36}
-                      className="object-contain"
+                  <div className="w-12 h-12 rounded-xl bg-white p-1 border border-slate-200 shadow-md flex items-center justify-center shrink-0 overflow-hidden">
+                    <img
+                      src="/logo.jpg"
+                      alt="B4Q Management Ltd Logo"
+                      className="w-full h-full object-contain rounded-lg"
                     />
                   </div>
                   <div>

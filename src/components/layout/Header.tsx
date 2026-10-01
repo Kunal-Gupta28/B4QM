@@ -101,13 +101,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Brand Logo - Using Actual Logo Image Asset */}
+          {/* Brand Logo - Using User's Exact Final Logo.jpg Asset */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-10 w-auto flex items-center">
+            <div className="relative flex items-center">
               <img
-                src="/logo.svg"
-                alt="B4Q Management Logo"
-                className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
+                src="/logo.jpg"
+                alt="B4Q Management Ltd Logo"
+                className="h-12 w-auto object-contain rounded-md group-hover:scale-105 transition-transform"
               />
             </div>
             <div className="flex flex-col border-l border-slate-200 pl-3">
