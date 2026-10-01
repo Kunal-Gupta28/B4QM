@@ -790,5 +790,330 @@ export const COURSES_DATA: CourseData[] = [
     onlineRequirements: ["Laptop with advanced analytics tools, webcam & mic."],
     assessment: "Executive Defense Panel + Master Written Exam (Pass mark: 50%).",
     certificateDetails: "B4Q Certified Six Sigma Master Black Belt Certificate."
+  },
+
+  /* --- ADDITIONAL EXEMPLAR GLOBAL RECOGNIZED TRAINING PROVIDER (RTP) SCOPE COURSES --- */
+  {
+    id: "la-iso-22000",
+    slug: "iso-22000-lead-auditor",
+    title: "ISO 22000:2018 Food Safety Management System (FSMS) Lead Auditor Course",
+    code: "FSMS-LA",
+    category: "Lead Auditor",
+    standard: "ISO 22000:2018",
+    durationDays: 5,
+    durationHours: 40,
+    passMark: 70,
+    format: "Online & Classroom",
+    accreditation: "Exemplar Global Authorised",
+    summary: "Master end-to-end food safety auditing combining Codex Alimentarius HACCP principles with prerequisite programs (PRPs & OPRPs).",
+    overview: "This 5-day Exemplar Global authorised Lead Auditor course prepares food safety professionals to conduct 3rd-party FSMS audits across food processing, manufacturing, catering, and packaging supply chains.",
+    objectives: [
+      "Interpret ISO 22000:2018 and HACCP principles in a food safety audit context.",
+      "Evaluate prerequisite programs (PRPs), operational PRPs (OPRPs), and Critical Control Points (CCPs).",
+      "Plan, conduct, report, and audit food safety management systems against ISO 19011."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "FSMS Framework & HACCP Principles", topics: ["ISO 22000:2018 HLS structure", "12 Codex HACCP steps & 7 principles", "Hazard analysis & risk assessment"] },
+      { day: "Day 2", title: "PRPs, OPRPs & Operational Controls", topics: ["Prerequisite programs (ISO/TS 22002 series)", "Establishing OPRPs vs CCPs", "Food defense & food fraud prevention"] },
+      { day: "Day 3", title: "Audit Planning & Checklists", topics: ["Food safety audit planning", "Sampling plans & hygiene checklists", "Opening meeting protocols"] },
+      { day: "Day 4", title: "On-site Audit Execution", topics: ["Auditing processing lines & cold storage", "Evidence gathering & non-conformity drafting", "Traceability & recall test audits"] },
+      { day: "Day 5", title: "Reporting & Written Exam", topics: ["Closing meeting presentation", "Corrective action plan evaluation", "Written examination (Pass mark: 70%)"] }
+    ],
+    prerequisites: ["Knowledge of HACCP & ISO 22000 standard."],
+    eligibility: ["Degree/Diploma in Food Tech, Microbiology, Chemistry, or 2+ yrs food industry experience."],
+    targetAudience: ["Food Safety Managers, QA/QC Lead Auditors, Hygiene Inspectors."],
+    onlineRequirements: ["Broadband internet, webcam, headset."],
+    assessment: "Continuous Workshop Evaluation (30%) + Final Written Exam (70%). Pass Mark: 70%.",
+    certificateDetails: "Exemplar Global Authorised ISO 22000 Lead Auditor Certificate."
+  },
+  {
+    id: "la-iso-50001",
+    slug: "iso-50001-lead-auditor",
+    title: "ISO 50001:2018 Energy Management System (EnMS) Lead Auditor Course",
+    code: "EnMS-LA",
+    category: "Lead Auditor",
+    standard: "ISO 50001:2018",
+    durationDays: 5,
+    durationHours: 40,
+    passMark: 70,
+    format: "Online & Classroom",
+    accreditation: "Exemplar Global Authorised",
+    summary: "Plan, lead, and report energy management system audits to optimize energy performance, reduce carbon emissions, and cut utility costs.",
+    overview: "This 5-day course provides hands-on expertise in auditing energy baselines, energy performance indicators (EnPIs), and energy management systems against ISO 50001:2018.",
+    objectives: [
+      "Understand ISO 50001:2018 requirements & energy performance measurement.",
+      "Audit energy baselines, energy review processes, and EnPIs.",
+      "Lead 3rd-party energy management audits under ISO 19011."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "EnMS Concepts & Energy Review", topics: ["ISO 50001 HLS structure", "Energy review & significant energy use (SEU)", "Energy baselines (EnBs) & EnPIs"] },
+      { day: "Day 2", title: "Energy Performance & Controls", topics: ["Design & procurement of energy services", "Operational planning & energy data monitoring", "Legal & statutory compliance"] },
+      { day: "Day 3", title: "Audit Planning & EnMS Checklists", topics: ["Audit team management & energy sampling", "Developing energy audit plans"] },
+      { day: "Day 4", title: "Site Auditing & Evidence", topics: ["Auditing utility plants, HVAC & electrical systems", "Non-conformity categorisation"] },
+      { day: "Day 5", title: "Reporting & Written Exam", topics: ["Audit report formulation", "Written examination (Pass mark: 70%)"] }
+    ],
+    prerequisites: ["Understanding of basic energy management principles."],
+    eligibility: ["Degree/Diploma in Engineering or Science."],
+    targetAudience: ["Energy Managers, Sustainability Leads, EHS Auditors."],
+    onlineRequirements: ["Broadband internet, webcam, headset."],
+    assessment: "Continuous Evaluation + Final Written Exam. Pass Mark: 70%.",
+    certificateDetails: "Exemplar Global Authorised ISO 50001 Lead Auditor Certificate."
+  },
+  {
+    id: "la-iso-37001",
+    slug: "iso-37001-lead-auditor",
+    title: "ISO 37001:2021 Anti-Bribery Management System (ABMS) Lead Auditor Course",
+    code: "ABMS-LA",
+    category: "Lead Auditor",
+    standard: "ISO 37001:2021",
+    durationDays: 5,
+    durationHours: 40,
+    passMark: 70,
+    format: "Online & Classroom",
+    accreditation: "Exemplar Global Authorised",
+    summary: "Audit anti-bribery management systems, due diligence protocols, and corporate compliance controls.",
+    overview: "This 5-day Exemplar Global authorised course equips compliance officers, legal counsel, and auditors to evaluate anti-bribery measures against ISO 37001:2021.",
+    objectives: [
+      "Interpret ISO 37001:2021 anti-bribery requirements & anti-corruption laws.",
+      "Audit financial, commercial, and third-party due diligence controls.",
+      "Report ABMS audit findings objectively."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "Anti-Bribery Framework", topics: ["ISO 37001 structure & FCPA / UK Bribery Act alignment", "Bribery risk assessment"] },
+      { day: "Day 2", title: "Compliance Controls & Due Diligence", topics: ["Financial & non-financial controls", "Third-party & personnel due diligence", "Whistleblowing mechanisms"] },
+      { day: "Day 3", title: "Audit Preparation", topics: ["Audit planning & compliance sampling", "Audit checklist customization"] },
+      { day: "Day 4", title: "Audit Execution & Evidence", topics: ["Interviewing executives & procurement leads", "Drafting bribery non-conformities"] },
+      { day: "Day 5", title: "Reporting & Examination", topics: ["Audit closing & report submission", "Written examination (Pass mark: 70%)"] }
+    ],
+    prerequisites: ["Basic understanding of compliance & risk governance."],
+    eligibility: ["Degree in Law, Finance, Business, or Compliance experience."],
+    targetAudience: ["Compliance Officers, Legal Counsel, Risk Managers, Internal/External Auditors."],
+    onlineRequirements: ["Broadband internet, webcam, headset."],
+    assessment: "Continuous Evaluation + Final Exam (Pass Mark: 70%).",
+    certificateDetails: "Exemplar Global Authorised ISO 37001 Lead Auditor Certificate."
+  },
+  {
+    id: "la-iso-42001",
+    slug: "iso-42001-lead-auditor",
+    title: "ISO/IEC 42001:2023 Artificial Intelligence Management System (AIMS) Lead Auditor",
+    code: "AIMS-LA",
+    category: "Lead Auditor",
+    standard: "ISO/IEC 42001:2023",
+    durationDays: 5,
+    durationHours: 40,
+    passMark: 70,
+    format: "Online & Classroom",
+    accreditation: "Exemplar Global Authorised",
+    summary: "Audit AI governance frameworks, algorithmic transparency, data bias controls, and trustworthy AI management systems.",
+    overview: "Pioneering 5-day Lead Auditor training for ISO/IEC 42001:2023—the world's first AI Management System standard. Learn to audit AI risk assessments, model governance, and ethical AI deployment.",
+    objectives: [
+      "Understand ISO/IEC 42001:2023 requirements & AI system lifecycle controls.",
+      "Audit AI risk impact assessments, bias mitigation, and transparency mechanisms.",
+      "Lead third-party AIMS certification audits."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "AI Management System Foundations", topics: ["ISO 42001 HLS framework", "AI risk assessment & impact analysis", "Responsible AI principles"] },
+      { day: "Day 2", title: "AIMS Annex A Controls & Data Governance", topics: ["Data quality for AI training", "Algorithmic transparency & explainability", "Third-party AI component risk"] },
+      { day: "Day 3", title: "AI Audit Planning", topics: ["Auditing ML models & automated decision systems", "Custom AI audit checklists"] },
+      { day: "Day 4", title: "Auditing AI Systems in Practice", topics: ["Evaluating MLOps pipelines & security", "Categorising AI compliance non-conformities"] },
+      { day: "Day 5", title: "Reporting & AI Audit Exam", topics: ["Audit reporting", "Proctored written examination (Pass mark: 70%)"] }
+    ],
+    prerequisites: ["Understanding of AI/ML concepts and basic IT risk."],
+    eligibility: ["Degree in CS, IT, Data Science, Engineering, or Tech Auditing."],
+    targetAudience: ["AI Ethics Officers, IT Lead Auditors, MLOps Leads, CISOs."],
+    onlineRequirements: ["Broadband internet, webcam, headset."],
+    assessment: "Continuous Workshop Evaluation (30%) + Final Exam (70%). Pass Mark: 70%.",
+    certificateDetails: "Exemplar Global Authorised ISO/IEC 42001 Lead Auditor Certificate."
+  },
+  {
+    id: "la-iso-31000",
+    slug: "iso-31000-lead-auditor",
+    title: "ISO 31000 Risk Management Lead Auditor Course",
+    code: "RM-LA",
+    category: "Lead Auditor",
+    standard: "ISO 31000:2018",
+    durationDays: 5,
+    durationHours: 40,
+    passMark: 70,
+    format: "Online & Classroom",
+    accreditation: "Exemplar Global Authorised",
+    summary: "Master enterprise risk assessment, risk criteria formulation, and auditing corporate risk management frameworks.",
+    overview: "Comprehensive 5-day Lead Auditor course on ISO 31000:2018 guidelines for managing risk across organizational operations.",
+    objectives: [
+      "Interpret ISO 31000 risk principles, framework, and process.",
+      "Audit risk identification, risk analysis, risk evaluation, and treatment.",
+      "Provide independent evaluation of ERM program maturity."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "Risk Principles & Framework", topics: ["ISO 31000 principles", "Leadership commitment & risk policy"] },
+      { day: "Day 2", title: "Risk Assessment Techniques", topics: ["IEC 31010 risk techniques", "Risk matrix & risk appetite modeling"] },
+      { day: "Day 3", title: "Audit Planning & Checklists", topics: ["Developing ERM audit programs"] },
+      { day: "Day 4", title: "Auditing Enterprise Risk", topics: ["Evaluating operational & financial risk controls"] },
+      { day: "Day 5", title: "Reporting & Written Exam", topics: ["Audit report formulation", "Written exam (70% pass mark)"] }
+    ],
+    prerequisites: ["Basic risk management awareness."],
+    eligibility: ["Degree in Business, Finance, Engineering, or Management."],
+    targetAudience: ["Enterprise Risk Managers, Internal Auditors, Compliance Officers."],
+    onlineRequirements: ["Broadband internet, webcam, headset."],
+    assessment: "Continuous Evaluation + Written Exam. Pass Mark: 70%.",
+    certificateDetails: "Exemplar Global Authorised ISO 31000 Risk Lead Auditor Certificate."
+  },
+  {
+    id: "la-iso-22301",
+    slug: "iso-22301-lead-auditor",
+    title: "ISO 22301:2019 Business Continuity Management System (BCMS) Lead Auditor Course",
+    code: "BCMS-LA",
+    category: "Lead Auditor",
+    standard: "ISO 22301:2019",
+    durationDays: 5,
+    durationHours: 40,
+    passMark: 70,
+    format: "Online & Classroom",
+    accreditation: "Exemplar Global Authorised",
+    summary: "Audit Business Impact Analysis (BIA), recovery strategy execution, and disaster preparedness controls.",
+    overview: "This 5-day course equips delegates to audit BCMS implementations against ISO 22301:2019.",
+    objectives: [
+      "Understand ISO 22301:2019 requirements & BCMS framework.",
+      "Audit Business Impact Analysis (BIA) & Risk Assessment.",
+      "Evaluate Business Continuity Plans (BCPs) & exercise testing."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "BCMS Framework & BIA", topics: ["ISO 22301 structure", "Conducting BIA & RTO/RPO setting"] },
+      { day: "Day 2", title: "BCP Strategies & Exercise Testing", topics: ["Crisis response & BCP plans", "Testing & exercise evaluation"] },
+      { day: "Day 3", title: "Audit Planning", topics: ["BCMS audit planning & sampling"] },
+      { day: "Day 4", title: "Site Auditing & Drills", topics: ["Auditing disaster recovery sites & drills"] },
+      { day: "Day 5", title: "Reporting & Exam", topics: ["Report submission", "Written exam (70% pass mark)"] }
+    ],
+    prerequisites: ["Understanding of business continuity basics."],
+    eligibility: ["Degree/Diploma in IT, Operations, or Risk."],
+    targetAudience: ["BCM Managers, IT Disaster Recovery Leads, Security Auditors."],
+    onlineRequirements: ["Broadband internet, webcam, headset."],
+    assessment: "Continuous Evaluation + Written Exam. Pass Mark: 70%.",
+    certificateDetails: "Exemplar Global Authorised ISO 22301 Lead Auditor Certificate."
+  },
+  {
+    id: "la-iso-27701",
+    slug: "iso-27701-lead-auditor",
+    title: "ISO/IEC 27701:2019 Privacy Information Management (PIMS) Lead Auditor & Implementer",
+    code: "PIMS-LA",
+    category: "Lead Auditor",
+    standard: "ISO/IEC 27701:2019",
+    durationDays: 5,
+    durationHours: 40,
+    passMark: 70,
+    format: "Online & Classroom",
+    accreditation: "Exemplar Global Authorised",
+    summary: "Comprehensive privacy management auditing mapped to GDPR, CCPA, and PII Controller/Processor controls.",
+    overview: "5-day specialized training for privacy professionals auditing PIMS controls extending ISO 27001.",
+    objectives: [
+      "Interpret ISO 27701 normative requirements for PII Controllers & Processors.",
+      "Audit Privacy Impact Assessments (DPIA) & consent management.",
+      "Lead 3rd-party PIMS certification audits."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "PIMS & GDPR Overview", topics: ["ISO 27701 extension to ISO 27001", "GDPR Articles alignment"] },
+      { day: "Day 2", title: "Controller & Processor Controls", topics: ["Clause 7 PII Controller controls", "Clause 8 PII Processor controls"] },
+      { day: "Day 3", title: "Audit Planning & DPIA Review", topics: ["Auditing Privacy Impact Assessments"] },
+      { day: "Day 4", title: "Auditing Privacy Operations", topics: ["Auditing cross-border data transfers & consent logs"] },
+      { day: "Day 5", title: "Reporting & Written Exam", topics: ["PIMS audit report & proctored exam"] }
+    ],
+    prerequisites: ["Prerequisite ISO 27001 ISMS knowledge."],
+    eligibility: ["Degree in CS, Law, IT, or Privacy Governance."],
+    targetAudience: ["DPOs, Privacy Counsel, InfoSec Lead Auditors."],
+    onlineRequirements: ["Broadband internet, webcam, headset."],
+    assessment: "Continuous Evaluation + Final Written Exam (Pass Mark: 70%).",
+    certificateDetails: "Exemplar Global Authorised ISO 27701 Lead Auditor Certificate."
+  },
+  {
+    id: "ims-triple",
+    slug: "ims-lead-auditor",
+    title: "Integrated Management System (IMS) QMS, EMS & OHSMS Lead Auditor Course",
+    code: "IMS-LA",
+    category: "Lead Auditor",
+    standard: "ISO 9001 + 14001 + 45001",
+    durationDays: 5,
+    durationHours: 40,
+    passMark: 70,
+    format: "Online & Classroom",
+    accreditation: "Exemplar Global Authorised",
+    summary: "Triple Lead Auditor qualification combining ISO 9001 (Quality), ISO 14001 (Environment), and ISO 45001 (Health & Safety).",
+    overview: "Streamlined 5-day combined Lead Auditor course covering High Level Structure (HLS) integration across Quality, Environmental, and Occupational Health & Safety management systems.",
+    objectives: [
+      "Audit integrated management systems across Clauses 4 to 10.",
+      "Conduct combined 1st, 2nd, and 3rd-party IMS audits efficiently.",
+      "Reduce client audit man-days by up to 30% via unified sampling."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "HLS Integration & Common Clauses", topics: ["Integrated Context, Leadership & Risk assessment"] },
+      { day: "Day 2", title: "QMS, EMS & OH&S Specific Requirements", topics: ["Quality controls, Environmental aspects & OH&S hazard identification"] },
+      { day: "Day 3", title: "IMS Audit Program & Checklists", topics: ["Integrated audit plans & combined checklists"] },
+      { day: "Day 4", title: "Conducting Integrated Site Audits", topics: ["Auditing site operations against all 3 standards simultaneously"] },
+      { day: "Day 5", title: "IMS Reporting & Written Exam", topics: ["Drafting combined NCRs", "Written examination (Pass mark: 70%)"] }
+    ],
+    prerequisites: ["Knowledge of ISO 9001, 14001, or 45001."],
+    eligibility: ["Degree/Diploma in Engineering, Science, or Quality/EHS Management."],
+    targetAudience: ["IMS Managers, EHS-Q Managers, Corporate Lead Auditors."],
+    onlineRequirements: ["Broadband internet, webcam, headset."],
+    assessment: "Continuous Evaluation + Final Written Exam. Pass Mark: 70%.",
+    certificateDetails: "Exemplar Global Authorised Triple IMS Lead Auditor Certificate."
+  },
+  {
+    id: "trans-27001-2022",
+    slug: "iso-27001-2022-transition",
+    title: "ISO/IEC 27001:2022 1-Day Transition Course for Lead Auditors",
+    code: "ISMS-TRANS",
+    category: "Professional",
+    standard: "ISO/IEC 27001:2022",
+    durationDays: 1,
+    durationHours: 8,
+    passMark: 70,
+    format: "Online Only",
+    accreditation: "Exemplar Global Authorised",
+    summary: "1-day upgrade course for certified ISO 27001:2013 auditors focusing on 93 modernized controls & 11 new controls.",
+    overview: "Essential 1-day transition workshop enabling existing ISO 27001 Lead Auditors to update their Exemplar Global registration to ISO/IEC 27001:2022.",
+    objectives: [
+      "Identify key structural changes in ISO 27001:2022.",
+      "Master the 93 controls restructured into 4 themes.",
+      "Audit the 11 new controls including Threat Intelligence & Cloud Security."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "ISO 27001:2022 Transition & 11 New Controls", topics: ["2013 vs 2022 comparative analysis", "Deep dive into 11 new controls", "Transition audit guidelines & proctored quiz"] }
+    ],
+    prerequisites: ["Existing ISO 27001:2013 Lead Auditor or Internal Auditor Certificate."],
+    eligibility: ["Certified ISO 27001 Auditor."],
+    targetAudience: ["Certified ISO 27001 Auditors needing 2022 transition."],
+    onlineRequirements: ["Broadband internet, webcam."],
+    assessment: "End-of-day proctored online transition assessment. Pass Mark: 70%.",
+    certificateDetails: "Exemplar Global Authorised ISO 27001:2022 Transition Certificate."
+  },
+  {
+    id: "iso-19011-course",
+    slug: "iso-19011-guidelines-auditing",
+    title: "ISO 19011:2026 Guidelines for Auditing Management Systems",
+    code: "AUD-19011",
+    category: "Professional",
+    standard: "ISO 19011:2026",
+    durationDays: 2,
+    durationHours: 16,
+    passMark: 70,
+    format: "Online & Classroom",
+    accreditation: "Exemplar Global Authorised",
+    summary: "Universal 2-day auditing principles course governing 1st, 2nd, and 3rd-party management system audits.",
+    overview: "Master the foundational auditing principles, auditor ethics, and audit program management rules established in ISO 19011:2026.",
+    objectives: [
+      "Apply 7 principles of auditing to management system evaluations.",
+      "Manage an audit program from initiation to post-audit follow-up.",
+      "Demonstrate professional communication & evidence gathering."
+    ],
+    curriculum: [
+      { day: "Day 1", title: "Auditing Principles & Program Management", topics: ["7 Auditing principles", "Establishing & managing audit programs", "Risk-based audit planning"] },
+      { day: "Day 2", title: "Audit Execution, Reporting & Ethics", topics: ["Gathering objective evidence", "Writing non-conformities & reports", "Auditor ethics & examination"] }
+    ],
+    prerequisites: ["Familiarity with any ISO management system standard."],
+    eligibility: ["Open to all quality & auditing professionals."],
+    targetAudience: ["Internal Auditors, Lead Auditors, QA Specialists."],
+    onlineRequirements: ["Broadband internet, webcam, headset."],
+    assessment: "Continuous Workshop Evaluation + Final Exam (Pass Mark: 70%).",
+    certificateDetails: "Exemplar Global Authorised ISO 19011 Auditing Certificate."
   }
 ];

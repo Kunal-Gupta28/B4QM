@@ -45,6 +45,7 @@ export default function TrainingHubPage() {
 
       const matchesDuration =
         selectedDuration === "All" ||
+        (selectedDuration === "1 Day" && course.durationDays === 1) ||
         (selectedDuration === "2 Days" && course.durationDays === 2) ||
         (selectedDuration === "4 Days" && course.durationDays === 4) ||
         (selectedDuration === "5 Days" && course.durationDays === 5);
@@ -84,8 +85,32 @@ export default function TrainingHubPage() {
             transition={{ delay: 0.2 }}
             className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Advance your auditing career with globally recognized Lead Auditor, Internal Auditor, GDPR DPO, and Six Sigma certifications.
+            Advance your auditing career with Exemplar Global Authorised Lead Auditor, Internal Auditor, GDPR DPO, ISO 42001 AI, and Six Sigma certifications.
           </motion.p>
+        </div>
+      </section>
+
+      {/* Exemplar Global RTP Official Scope Banner */}
+      <section className="bg-gradient-to-r from-[#251574] via-[#120a3e] to-[#251574] text-white py-10 relative overflow-hidden">
+        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] relative z-10">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-3 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-mono font-semibold">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span>EXEMPLAR GLOBAL RECOGNIZED TRAINING PROVIDER (RTP)</span>
+              </div>
+              <h2 className="text-xl md:text-2xl font-bold font-serif text-white">
+                Training Provider Name: <span className="text-[#008AD8]">B4Q Management Ltd</span>
+              </h2>
+              <p className="text-xs md:text-sm text-slate-300 max-w-2xl leading-relaxed">
+                Official Exemplar Global RTP Scope covering 60+ accredited Lead Auditor, Internal Auditor, IMS Integration, ISO 42001 AI Governance, and Six Sigma qualifications.
+              </p>
+            </div>
+            <div className="shrink-0 text-center md:text-right space-y-1">
+              <div className="text-2xl md:text-3xl font-extrabold font-mono text-emerald-400">60+ RTP</div>
+              <div className="text-xs text-slate-300 font-medium">Authorised Courses</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -99,7 +124,7 @@ export default function TrainingHubPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search course title or code..."
+                placeholder="Search course title, ISO standard or code..."
                 className="w-full bg-slate-50 text-slate-900 placeholder-slate-400 text-xs pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#008AD8] font-medium"
               />
             </div>
@@ -111,9 +136,9 @@ export default function TrainingHubPage() {
                 className="bg-slate-50 text-slate-700 text-xs px-3 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#008AD8] font-semibold"
               >
                 <option value="All">All Categories</option>
-                <option value="Lead Auditor">Lead Auditor</option>
-                <option value="Internal Auditor">Internal Auditor</option>
-                <option value="Professional & DPO">Professional & DPO</option>
+                <option value="Lead Auditor">Lead Auditor Courses</option>
+                <option value="Internal Auditor">Internal Auditor Courses</option>
+                <option value="Professional">Professional & Six Sigma</option>
               </select>
 
               <select
@@ -122,6 +147,7 @@ export default function TrainingHubPage() {
                 className="bg-slate-50 text-slate-700 text-xs px-3 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#008AD8] font-semibold"
               >
                 <option value="All">All Durations</option>
+                <option value="1 Day">1 Day Transition</option>
                 <option value="2 Days">2 Days (16 Hrs)</option>
                 <option value="4 Days">4 Days (32 Hrs)</option>
                 <option value="5 Days">5 Days (40 Hrs)</option>
