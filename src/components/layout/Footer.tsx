@@ -58,11 +58,10 @@ export const Footer: React.FC = () => {
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider font-mono">ISO Certification</h4>
             <ul className="space-y-2 text-xs">
               <li><Link href="/certification/iso-9001" className="hover:text-[#008AD8] transition-colors">ISO 9001:2015 Quality</Link></li>
-              <li><Link href="/certification/iso-27001" className="hover:text-[#008AD8] transition-colors">ISO 27001:2022 ISMS</Link></li>
               <li><Link href="/certification/iso-14001" className="hover:text-[#008AD8] transition-colors">ISO 14001:2026 Environmental</Link></li>
               <li><Link href="/certification/iso-45001" className="hover:text-[#008AD8] transition-colors">ISO 45001:2018 Health & Safety</Link></li>
               <li><Link href="/certification/iso-22000" className="hover:text-[#008AD8] transition-colors">ISO 22000:2018 Food Safety</Link></li>
-              <li><Link href="/certification/iso-20000-1" className="hover:text-[#008AD8] transition-colors">ISO 20000-1 IT Service</Link></li>
+              <li><Link href="/certification/iso-27001" className="hover:text-[#008AD8] transition-colors">ISO 27001:2022 ISMS</Link></li>
               <li><Link href="/sectors" className="text-amber-400 font-bold hover:underline">Browse All 32 IAF Sectors →</Link></li>
             </ul>
           </div>
@@ -73,7 +72,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs">
               <li><Link href="/verify" className="text-[#008AD8] hover:underline font-bold flex items-center gap-1"><span>Verify Certificate</span> →</Link></li>
               <li><Link href="/resources/suspended" className="text-rose-400 hover:underline font-bold flex items-center gap-1"><span>Suspended Certificates</span> →</Link></li>
-              <li><Link href="/certification" className="hover:text-[#FF4D5A] transition-colors">Standards Catalog (30 ISOs)</Link></li>
+              <li><Link href="/certification" className="hover:text-[#FF4D5A] transition-colors">Standards Catalog (5 ISOs)</Link></li>
               <li><Link href="/get-a-quote" className="hover:text-[#FF4D5A] transition-colors">Get Certification Quote</Link></li>
               <li><Link href="/about/accreditation" className="hover:text-[#FF4D5A] transition-colors">Accreditation Details</Link></li>
               <li><Link href="/resources/documents" className="hover:text-[#FF4D5A] transition-colors">Public Document Library (A–P)</Link></li>

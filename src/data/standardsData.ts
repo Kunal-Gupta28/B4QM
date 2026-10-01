@@ -436,58 +436,6 @@ export const ALL_STANDARDS: ISOStandard[] = [
     }
   },
   {
-    slug: "iso-27701",
-    code: "ISO/IEC 27701:2019",
-    name: "Privacy Information Management System (PIMS)",
-    shortName: "Privacy & PII Protection",
-    category: "Information Security & Privacy",
-    categorySlug: "security",
-    tagline: "Extend ISO 27001 into comprehensive GDPR, CCPA, and global data privacy compliance.",
-    description: "ISO/IEC 27701:2019 specifies requirements and provides guidance for establishing, implementing, maintaining, and continually improving a Privacy Information Management System (PIMS) as an extension to ISO/IEC 27001 for PII Controllers and Processors.",
-    whoItsFor: [
-      "Data Controllers & SaaS Platforms handling PII",
-      "HR Tech, Payroll & Employee Management Systems",
-      "Digital Health & Medical Record Processors",
-      "Global Call Centers & Customer Support BPOs",
-      "AdTech & Customer Data Platforms (CDP)"
-    ],
-    keyBenefits: [
-      {
-        title: "Demonstrable GDPR & Privacy Compliance",
-        description: "Map PIMS controls directly to GDPR Articles (Consent, Right to Erasure, DPIA, Data Transfers).",
-        iconName: "EyeOff"
-      },
-      {
-        title: "Dual Role Coverage (Controller & Processor)",
-        description: "Specific normative guidance for both Data Controllers (Clause 7) and Data Processors (Clause 8).",
-        iconName: "UserCheck"
-      },
-      {
-        title: "Enhanced Client Data Trust",
-        description: "Provide enterprise buyers with audit-backed proof that customer personal data is safely processed.",
-        iconName: "ShieldAlert"
-      },
-      {
-        title: "Streamlined Privacy Impact Assessments (DPIA)",
-        description: "Integrate privacy risk evaluation directly into existing ISO 27001 information risk workflows.",
-        iconName: "FileSpreadsheet"
-      }
-    ],
-    clauses: commonClauses4to10,
-    costFactors: [
-      "Volume and sensitivity of Personally Identifiable Information (PII)",
-      "Cross-border data transfer mechanisms & cloud regions",
-      "Prerequisite ISO 27001 certification status"
-    ],
-    typicalDurationDays: { min: 2, max: 6 },
-    faqs: [
-      {
-        question: "Can ISO 27701 be certified standalone without ISO 27001?",
-        answer: "No. ISO 27701 is designed as a privacy management extension to ISO 27001. An organization must either hold a valid ISO 27001 certificate or undergo a joint ISO 27001 + ISO 27701 audit."
-      }
-    ]
-  },
-  {
     slug: "iso-45001",
     code: "ISO 45001:2018",
     name: "Occupational Health & Safety Management System (OHSMS)",
@@ -592,61 +540,6 @@ export const ALL_STANDARDS: ISOStandard[] = [
     ],
     extras: {
       haccpStepsCount: 7
-    }
-  },
-  {
-    slug: "iso-20000-1",
-    code: "ISO/IEC 20000-1:2018",
-    name: "IT Service Management System (ITSMS)",
-    shortName: "IT Service Management",
-    category: "IT Services",
-    categorySlug: "it",
-    tagline: "Deliver high-performance, resilient, and SLA-driven IT services.",
-    description: "ISO/IEC 20000-1:2018 is the international standard for IT Service Management. It specifies requirements for an organization to establish, implement, maintain, and continually improve a service management system (SMS).",
-    whoItsFor: [
-      "Managed Service Providers (MSPs)",
-      "Cloud Infrastructure & Data Center Operators",
-      "Enterprise IT Helpdesk & Service Operations",
-      "Telecom & ISP Network Operators",
-      "SaaS Application Support Teams"
-    ],
-    keyBenefits: [
-      {
-        title: "Strict SLA Compliance & Uptime Assurance",
-        description: "Structure service level agreements (SLAs) with predictable incident response and resolution metrics.",
-        iconName: "Clock"
-      },
-      {
-        title: "ITIL Alignment & Process Efficiency",
-        description: "Standardize service catalog management, incident management, problem management, and change release.",
-        iconName: "Server"
-      },
-      {
-        title: "Reduced IT Downtime & Outage Recovery",
-        description: "Identify root causes of recurring IT failures using structured problem management processes.",
-        iconName: "RefreshCw"
-      },
-      {
-        title: "Competitive Edge in Tech RFPs",
-        description: "Stand out in enterprise IT service procurement and government IT outsourcing bids.",
-        iconName: "Briefcase"
-      }
-    ],
-    clauses: commonClauses4to10,
-    costFactors: [
-      "Number of IT services included in the service catalog",
-      "Team size across helpdesk, NOC, SOC, and sysadmin operations",
-      "Multi-vendor IT ecosystem integration"
-    ],
-    typicalDurationDays: { min: 2, max: 6 },
-    faqs: [
-      {
-        question: "How does ISO 20000-1 differ from ITIL?",
-        answer: "ITIL is a framework of best practice recommendations, whereas ISO/IEC 20000-1 is an auditable international standard against which organizations obtain accredited third-party certification."
-      }
-    ],
-    extras: {
-      lifecycleStages: ["Service Strategy & Planning", "Service Design & Transition", "Service Delivery & SLA Control", "Continual Service Improvement"]
     }
   }
 ];

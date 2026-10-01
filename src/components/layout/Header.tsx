@@ -164,7 +164,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                           href="/certification"
                           className="w-full py-2 bg-slate-100 hover:bg-[#251574] hover:text-white text-slate-800 font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2"
                         >
-                          <span>Explore Full 30 ISO Standards Catalog</span>
+                          <span>Explore ISO Standards Catalog</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                       </div>

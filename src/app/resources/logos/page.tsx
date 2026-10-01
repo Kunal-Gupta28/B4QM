@@ -20,12 +20,10 @@ import { Footer } from "@/components/layout/Footer";
 
 const LOGO_MARKS = [
   { id: "iso-9001", code: "ISO 9001:2015", standard: "Quality Management System", color: "from-blue-600 to-indigo-700" },
-  { id: "iso-27001", code: "ISO/IEC 27001:2022", standard: "Information Security Management", color: "from-rose-600 to-brand-coral" },
   { id: "iso-14001", code: "ISO 14001:2015", standard: "Environmental Management System", color: "from-emerald-600 to-teal-700" },
   { id: "iso-45001", code: "ISO 45001:2018", standard: "Occupational Health & Safety", color: "from-amber-600 to-orange-700" },
   { id: "iso-22000", code: "ISO 22000:2018", standard: "Food Safety Management System", color: "from-yellow-600 to-amber-700" },
-  { id: "iso-27701", code: "ISO/IEC 27701:2019", standard: "Privacy Information Management", color: "from-purple-600 to-indigo-700" },
-  { id: "iso-20000-1", code: "ISO/IEC 20000-1:2018", standard: "IT Service Management System", color: "from-cyan-600 to-blue-700" }
+  { id: "iso-27001", code: "ISO/IEC 27001:2022", standard: "Information Security Management", color: "from-rose-600 to-brand-coral" },
 ];
 
 export default function LogoRegulationsPage() {

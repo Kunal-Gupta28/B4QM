@@ -223,7 +223,7 @@ export default function HomePage() {
                   <div className="text-xs text-slate-500 font-medium mt-0.5">Offices (UK, IN, US, SG)</div>
                 </div>
                 <div>
-                  <div className="text-2xl md:text-3xl font-extrabold text-[#008AD8]">7+ ISO</div>
+                  <div className="text-2xl md:text-3xl font-extrabold text-[#008AD8]">5 ISO</div>
                   <div className="text-xs text-slate-500 font-medium mt-0.5">Accredited Standards</div>
                 </div>
                 <div>
@@ -349,13 +349,13 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Browse All 30 Standards CTA Button */}
+          {/* Browse All Standards CTA Button */}
           <div className="mt-12 text-center">
             <Link
               href="/certification"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#251574] hover:bg-[#008AD8] text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all"
             >
-              <span>Browse All 30 Accredited ISO Standards</span>
+              <span>Explore All Accredited ISO Standards</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

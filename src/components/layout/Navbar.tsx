@@ -40,12 +40,10 @@ export const Navbar: React.FC = () => {
 
   const standardsNav = [
     { name: "ISO 9001", code: "Quality Management", href: "/certification/iso-9001", icon: Award },
-    { name: "ISO 27001", code: "Information Security (2022)", href: "/certification/iso-27001", icon: Lock },
     { name: "ISO 14001", code: "Environmental Management", href: "/certification/iso-14001", icon: Leaf },
     { name: "ISO 45001", code: "Health & Safety", href: "/certification/iso-45001", icon: HeartPulse },
-    { name: "ISO 27701", code: "Privacy & PII Protection", href: "/certification/iso-27701", icon: Lock },
     { name: "ISO 22000", code: "Food Safety Management", href: "/certification/iso-22000", icon: Utensils },
-    { name: "ISO 20000-1", code: "IT Service Management", href: "/certification/iso-20000-1", icon: Server },
+    { name: "ISO 27001", code: "Information Security (2022)", href: "/certification/iso-27001", icon: Lock },
   ];
 
   return (

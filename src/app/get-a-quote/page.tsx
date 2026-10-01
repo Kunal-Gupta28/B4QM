@@ -29,12 +29,10 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 
 const STANDARDS_OPTIONS = [
   { id: "iso-9001", code: "ISO 9001:2015", title: "Quality Management System (QMS)", category: "Quality & Operations" },
-  { id: "iso-27001", code: "ISO/IEC 27001:2022", title: "Information Security Management (ISMS)", category: "Security & Privacy" },
   { id: "iso-14001", code: "ISO 14001:2015", title: "Environmental Management System (EMS)", category: "Environment & Safety" },
   { id: "iso-45001", code: "ISO 45001:2018", title: "Occupational Health & Safety (OH&S)", category: "Environment & Safety" },
   { id: "iso-22000", code: "ISO 22000:2018", title: "Food Safety Management System (FSMS)", category: "Food & Agriculture" },
-  { id: "iso-27701", code: "ISO/IEC 27701:2019", title: "Privacy Information Management (PIMS)", category: "Security & Privacy" },
-  { id: "iso-20000-1", code: "ISO/IEC 20000-1:2018", title: "IT Service Management System (ITSMS)", category: "IT & Digital" }
+  { id: "iso-27001", code: "ISO/IEC 27001:2022", title: "Information Security Management (ISMS)", category: "Security & Privacy" }
 ];
 
 const COUNTRIES = [
