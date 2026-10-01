@@ -344,11 +344,22 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Cards Grid */}
+          {/* Cards Grid (Limited to 6 Featured Standards on Home Page) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredStandards.map((std) => (
+            {filteredStandards.slice(0, 6).map((std) => (
               <StandardCard key={std.id} standard={std} />
             ))}
+          </div>
+
+          {/* Browse All 30 Standards CTA Button */}
+          <div className="mt-12 text-center">
+            <Link
+              href="/certification"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#251574] hover:bg-[#008AD8] text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all"
+            >
+              <span>Browse All 30 Accredited ISO Standards</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
 
         </div>
