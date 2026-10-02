@@ -222,31 +222,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2.5 shrink-0">
             <button
               onClick={onOpenCommandPalette}
-              className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 border border-slate-200 px-3 py-1.5 rounded-full text-xs text-slate-700 font-medium transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-slate-100/90 hover:bg-slate-200/90 border border-slate-200/90 px-3.5 py-2 rounded-full text-xs text-slate-700 font-semibold transition-all shrink-0 whitespace-nowrap"
               title="Search standards, courses and verify"
             >
-              <Search className="w-3.5 h-3.5 text-slate-500" />
-              <span>Search</span>
-              <kbd className="bg-white px-1.5 py-0.5 rounded text-[10px] font-mono text-slate-500 border border-slate-300 shadow-2xs">
+              <Search className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+              <span className="whitespace-nowrap">Search</span>
+              <kbd className="bg-white px-1.5 py-0.5 rounded text-[10px] font-mono text-slate-500 border border-slate-300 shadow-2xs shrink-0">
                 ⌘K
               </kbd>
             </button>
 
-            <Link href="/verify">
-              <button className="px-4 py-2 bg-sky-50 hover:bg-sky-100 text-[#008AD8] border border-sky-200 font-semibold text-xs rounded-full transition-colors flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#008AD8]" />
-                <span>Verify Cert</span>
+            <Link href="/verify" className="shrink-0">
+              <button className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-sky-50/90 hover:bg-sky-100 text-[#008AD8] border border-sky-200/90 font-bold text-xs rounded-full transition-all duration-200 shrink-0 whitespace-nowrap shadow-2xs hover:shadow-sm">
+                <ShieldCheck className="w-4 h-4 text-[#008AD8] shrink-0" />
+                <span className="whitespace-nowrap">Verify Cert</span>
               </button>
             </Link>
 
-            <Link href="/get-a-quote">
-              <Button variant="primary" size="sm" className="bg-[#FF4D5A] hover:bg-rose-600 text-white font-bold rounded-full">
-                <span>Get a Quote</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Button>
+            <Link href="/get-a-quote" className="shrink-0">
+              <button className="inline-flex items-center justify-center gap-2 px-5 py-2 bg-[#FF4D5A] hover:bg-[#E03E4B] text-white font-bold text-xs rounded-full transition-all duration-200 shrink-0 whitespace-nowrap shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]">
+                <span className="whitespace-nowrap">Get a Quote</span>
+                <ArrowRight className="w-3.5 h-3.5 text-white shrink-0" />
+              </button>
             </Link>
           </div>
 
