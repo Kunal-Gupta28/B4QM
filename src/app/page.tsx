@@ -276,12 +276,12 @@ export default function HomePage() {
                 placeholder="Enter Certificate Number (e.g. B4Q-ISMS-2026-8842) or Organisation Name..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="sm:col-span-7 px-4 py-2.5 bg-white/95 focus:bg-white text-slate-900 text-xs sm:text-sm font-semibold rounded-full outline-none focus:ring-2 focus:ring-sky-400 transition-all placeholder:text-slate-400 shadow-inner"
+                className="sm:col-span-7 px-4 py-2.5 bg-white/95 focus:bg-white text-slate-800 text-xs sm:text-sm font-medium rounded-full outline-none focus:ring-2 focus:ring-sky-400 transition-all placeholder:text-slate-500 shadow-inner"
               />
               <select
                 value={searchCountry}
                 onChange={(e) => setSearchCountry(e.target.value)}
-                className="sm:col-span-5 px-4 py-2.5 bg-white/95 focus:bg-white text-slate-900 text-xs sm:text-sm font-bold rounded-full outline-none focus:ring-2 focus:ring-sky-400 transition-all cursor-pointer shadow-inner appearance-none"
+                className="sm:col-span-5 px-4 py-2.5 bg-white/95 focus:bg-white text-slate-600 text-xs sm:text-sm font-medium rounded-full outline-none focus:ring-2 focus:ring-sky-400 transition-all cursor-pointer shadow-inner appearance-none"
                 style={{
                   backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23475569' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
                   backgroundPosition: `right 0.85rem center`,
