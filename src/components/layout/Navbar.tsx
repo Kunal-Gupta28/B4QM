@@ -73,68 +73,13 @@ export const Navbar: React.FC = () => {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-7">
-            {/* Standards Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setActiveDropdown("standards")}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button className="flex items-center gap-1.5 text-sm font-medium text-slate-200 hover:text-white transition-colors py-2">
-                <span>Certification</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-white" />
-              </button>
-
-              <AnimatePresence>
-                {activeDropdown === "standards" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    className="absolute top-full left-0 w-80 p-3 rounded-2xl bg-brand-navyDark border border-white/15 shadow-2xl backdrop-blur-2xl grid grid-cols-1 gap-1"
-                  >
-                    <div className="px-3 py-1.5 border-b border-white/10 mb-1 flex items-center justify-between">
-                      <span className="text-[11px] font-mono uppercase text-slate-400 font-semibold">
-                        ISO Standards Hub
-                      </span>
-                      <Link
-                        href="/certification"
-                        className="text-[11px] text-brand-coral hover:underline font-medium"
-                      >
-                        View All 5 →
-                      </Link>
-                    </div>
-                    {standardsNav.map((item) => {
-                      const Icon = item.icon;
-                      return (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/10 transition-colors group"
-                        >
-                          <div className="p-2 rounded-lg bg-white/5 text-brand-coral group-hover:bg-brand-coral group-hover:text-white transition-colors">
-                            <Icon className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <div className="text-xs font-bold text-white group-hover:text-brand-coral transition-colors">
-                              {item.name}
-                            </div>
-                            <div className="text-[11px] text-slate-400">{item.code}</div>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             <Link
               href="/certification"
               className={`text-sm font-medium transition-colors ${
                 pathname === "/certification" ? "text-brand-coral font-semibold" : "text-slate-200 hover:text-white"
               }`}
             >
-              Standards Hub
+              ISO Standards
             </Link>
 
             <Link
