@@ -102,10 +102,10 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 gap-4">
           <p>© {new Date().getFullYear()} B4Q Management Ltd. All rights reserved. Authorised Training Provider of Exemplar Global Inc.</p>
           <div className="flex items-center gap-6">
-            <Link href="/resources/documents" className="hover:text-white transition-colors">Terms of Use</Link>
-            <Link href="/resources/documents" className="hover:text-white transition-colors">General Conditions</Link>
-            <Link href="/resources/documents" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/resources/documents" className="hover:text-white transition-colors">Return & Refund Policy</Link>
+            <Link href="/terms-of-use" className="hover:text-white transition-colors">Terms of Use</Link>
+            <Link href="/terms-of-use" className="hover:text-white transition-colors">General Conditions</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/refund-policy" className="hover:text-white transition-colors">Return & Refund Policy</Link>
           </div>
         </div>
       </div>
