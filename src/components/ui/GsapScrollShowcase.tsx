@@ -63,8 +63,8 @@ export default function GsapScrollShowcase() {
   }, []);
 
   const headlineWords = [
-    "We", "don't", "just", "audit", "compliance—", "we", "engineer", "bulletproof",
-    "trust", "that", "accelerates", "global", "enterprise", "growth."
+    "We", "deliver", "internationally", "accredited", "ISO", "certifications",
+    "that", "build", "genuine", "trust", "and", "accelerate", "your", "business", "growth."
   ];
 
   return (
