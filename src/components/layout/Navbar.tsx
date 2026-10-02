@@ -100,7 +100,7 @@ export const Navbar: React.FC = () => {
                         href="/certification"
                         className="text-[11px] text-brand-coral hover:underline font-medium"
                       >
-                        View All 7 →
+                        View All 5 →
                       </Link>
                     </div>
                     {standardsNav.map((item) => {

@@ -128,7 +128,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                           Core ISO Standards Scope
                         </span>
                         <Link href="/certification" className="text-[11px] font-bold text-[#008AD8] hover:underline">
-                          View All 30 Standards →
+                          View All 5 Standards →
                         </Link>
                       </div>
 
@@ -282,7 +282,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
               <div className="space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Navigation</div>
                 <Link href="/certification" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
-                  ISO Standards (30 Standards)
+                  ISO Standards (5 Core Standards)
                 </Link>
                 <Link href="/training" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
                   Auditor Training
