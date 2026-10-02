@@ -1,57 +1,29 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import {
-  ShieldCheck,
-  Award,
-  Search,
-  ArrowRight,
-  CheckCircle2,
-  Lock,
-  Leaf,
-  HeartPulse,
-  Server,
-  Utensils,
-  Globe,
-  Users,
-  Building2,
-  ChevronDown,
-  HelpCircle,
-  Star,
-  Quote,
-  Clock,
-  BookOpen,
-  Check,
-  Scale,
-  FileText,
-} from "lucide-react";
+import { ChevronDown, Quote } from "lucide-react";
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { CertificateCard } from "@/components/ui/CertificateCard";
 import { StandardCard } from "@/components/ui/StandardCard";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
-import GsapScrollShowcase from "@/components/ui/GsapScrollShowcase";
+import { HomeHero } from "@/components/home/HomeHero";
+import { HomeVerificationBar } from "@/components/home/HomeVerificationBar";
 import { ISO_STANDARDS } from "@/lib/data";
 
-export default function HomePage() {
-  const router = useRouter();
+// Lazy loading heavy GSAP Scroll Showcase component
+const GsapScrollShowcase = dynamic(() => import("@/components/ui/GsapScrollShowcase"), {
+  ssr: false,
+  loading: () => <div className="py-20 text-center text-xs font-mono text-slate-400">Loading interactive showcase...</div>,
+});
 
+export default function HomePage() {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchCountry, setSearchCountry] = useState("ALL");
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-  const handleHeroSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!searchQuery.trim()) return;
-    router.push(`/verify?number=${encodeURIComponent(searchQuery)}&country=${searchCountry}`);
-  };
 
   const categories = [
     "All",
@@ -69,45 +41,6 @@ export default function HomePage() {
     if (activeCategory === "IT Services") return std.id.includes("20000");
     return true;
   });
-
-  const processSteps = [
-    {
-      step: "01",
-      title: "Application & Proposal",
-      desc: "Submit your organizational scope and site details. Receive a transparent multi-year audit proposal with zero hidden fees.",
-      timeline: "Days 1–3",
-    },
-    {
-      step: "02",
-      title: "Stage 1 Readiness Audit",
-      desc: "Impartial evaluation of your management system documentation, policy alignment, and scope readiness.",
-      timeline: "Week 2",
-    },
-    {
-      step: "03",
-      title: "Stage 2 Certification Audit",
-      desc: "Comprehensive on-site or hybrid audit verifying operational execution, evidence logs, and clause compliance.",
-      timeline: "Weeks 3–4",
-    },
-    {
-      step: "04",
-      title: "Decision & Certificate Issuance",
-      desc: "Independent technical review committee verifies audit findings. Accredited certificate issued with QR code verification.",
-      timeline: "Day 30",
-    },
-    {
-      step: "05",
-      title: "Annual Surveillance Audits",
-      desc: "Brief yearly check-in audits in Years 1 & 2 to ensure continuous system health and standard adherence.",
-      timeline: "Years 1 & 2",
-    },
-    {
-      step: "06",
-      title: "Recertification Cycle",
-      desc: "Full triennial review at Year 3 to renew certificate validity for another 3-year cycle.",
-      timeline: "Year 3",
-    },
-  ];
 
   const testimonials = [
     {
@@ -156,166 +89,14 @@ export default function HomePage() {
     <div className="min-h-[100dvh] flex flex-col bg-white overflow-x-hidden w-full max-w-[100dvw]">
       <Header onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
 
-      {/* Hero Section */}
-      <section className="relative w-full max-w-full pt-[8dvh] pb-[6dvh] md:pt-[12dvh] md:pb-[8dvh] bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
-        {/* Ambient Radial Mesh Gradient Background */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-40">
-          <div className="absolute top-12 left-10 w-[40%] h-[40%] bg-[#251574]/10 rounded-full blur-3xl" />
-          <div className="absolute top-32 right-10 w-[40%] h-[40%] bg-[#008AD8]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-1/3 w-[35%] h-[35%] bg-[#FF4D5A]/10 rounded-full blur-3xl" />
-        </div>
+      <HomeHero />
+      <HomeVerificationBar />
 
-        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
-            {/* Left Hero Content */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7 space-y-6"
-            >
-              {/* Trust Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-slate-700">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[#251574] font-bold">Exemplar Global</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-slate-600">Authorised ISO Certification Body</span>
-              </div>
-
-              {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
-                ISO Certification That Stands Up To{" "}
-                <span className="bg-gradient-to-r from-[#251574] via-[#008AD8] to-[#FF4D5A] bg-clip-text text-transparent">
-                  Global Scrutiny.
-                </span>
-              </h1>
-
-              {/* Subheadline */}
-              <p className="text-lg md:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl">
-                Accredited third-party ISO audit & certification services across UK, India, USA & Singapore. Impartial, transparent, and trusted by global enterprises.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
-                  href="/get-a-quote"
-                  className="px-8 py-4 bg-[#FF4D5A] hover:bg-rose-600 text-white font-bold rounded-2xl shadow-lg shadow-rose-500/20 hover:shadow-xl hover:scale-[1.02] transition-all flex items-center gap-2"
-                >
-                  <span>Get Instant Audit Quote</span>
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-
-                <Link
-                  href="/verify"
-                  className="px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-semibold rounded-2xl shadow-sm hover:shadow-md transition-all flex items-center gap-2"
-                >
-                  <Search className="w-4 h-4 text-[#008AD8]" />
-                  <span>Verify Certificate</span>
-                </Link>
-              </div>
-
-              {/* Key Trust Stats */}
-              <div className="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-6 max-w-lg">
-                <div>
-                  <div className="text-2xl md:text-3xl font-extrabold text-[#251574]">4 Global</div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Offices (UK, IN, US, SG)</div>
-                </div>
-                <div>
-                  <div className="text-2xl md:text-3xl font-extrabold text-[#008AD8]">5 ISO</div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Accredited Standards</div>
-                </div>
-                <div>
-                  <div className="text-2xl md:text-3xl font-extrabold text-emerald-600">100%</div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Impartiality Audits</div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right Interactive Certificate Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5 flex flex-col items-center justify-center relative"
-            >
-              <div className="relative z-10 w-full max-w-sm sm:max-w-md">
-                <CertificateCard
-                  certificate={{
-                    certNumber: "B4Q-ISMS-849201",
-                    clientName: "Global CyberSec Enterprises Ltd",
-                    standard: "ISO 27001:2022",
-                    scope: "Provision of Cloud Managed Security Services, SOC Monitoring, and Information Security Governance.",
-                    issueDate: "2024-01-15",
-                    expiryDate: "2027-01-14",
-                    status: "Valid",
-                    country: "United Kingdom",
-                    sites: ["London HQ", "Manchester DC"],
-                    type: "Organisation",
-                  }}
-                />
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Verification Lookup Bar */}
-      <section className="bg-[#251574] py-[4dvh] text-white relative z-20 w-full max-w-full">
-        <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%]">
-          <form onSubmit={handleHeroSearch} className="flex flex-col md:flex-row items-center gap-3 bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-3xl md:rounded-full border border-white/20 shadow-xl">
-            <div className="flex items-center gap-2.5 shrink-0 px-3">
-              <ShieldCheck className="w-5 h-5 text-sky-400 shrink-0" />
-              <span className="font-bold text-xs sm:text-sm tracking-wide text-white whitespace-nowrap">Public Registry Check:</span>
-            </div>
-
-            <div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-12 gap-2.5">
-              <input
-                type="text"
-                placeholder="Enter Certificate Number (e.g. B4Q-ISMS-2026-8842) or Organisation Name..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="sm:col-span-7 px-4 py-2.5 bg-white/95 focus:bg-white text-slate-800 text-xs sm:text-sm font-medium rounded-full outline-none focus:ring-2 focus:ring-sky-400 transition-all placeholder:text-slate-500 shadow-inner"
-              />
-              <select
-                value={searchCountry}
-                onChange={(e) => setSearchCountry(e.target.value)}
-                className="sm:col-span-5 px-4 py-2.5 bg-white/95 focus:bg-white text-slate-600 text-xs sm:text-sm font-medium rounded-full outline-none focus:ring-2 focus:ring-sky-400 transition-all cursor-pointer shadow-inner appearance-none"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23475569' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                  backgroundPosition: `right 0.85rem center`,
-                  backgroundRepeat: `no-repeat`,
-                  backgroundSize: `1.25em 1.25em`,
-                  paddingRight: `2.25rem`
-                }}
-              >
-                <option value="ALL">All Global Offices (UK, IN, US, SG)</option>
-                <option value="UK">United Kingdom (London)</option>
-                <option value="IN">India (Pitampura Delhi)</option>
-                <option value="US">United States (Delaware)</option>
-                <option value="SG">Singapore</option>
-              </select>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full md:w-auto px-7 py-2.5 bg-[#FF4D5A] hover:bg-[#E03E4B] text-white font-bold text-xs sm:text-sm rounded-full shrink-0 transition-all shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
-            >
-              <Search className="w-4 h-4 shrink-0" />
-              <span>Verify Now</span>
-            </button>
-          </form>
-        </div>
-      </section>
-
-      {/* NEW: GSAP Scrubbing & Stacking Showcase Section */}
       <GsapScrollShowcase />
 
-      {/* Standards Filterable Grid Section */}
+      {/* Standards Grid */}
       <section className="py-[6dvh] md:py-[10dvh] bg-white relative w-full max-w-full">
         <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%]">
-          
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#008AD8] mb-2">
@@ -326,7 +107,6 @@ export default function HomePage() {
               </h2>
             </div>
 
-            {/* Category Filter Pills */}
             <div className="flex flex-wrap items-center gap-2">
               {categories.map((cat) => (
                 <button
@@ -344,13 +124,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Cards Grid (Limited to 6 Featured Standards on Home Page) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredStandards.slice(0, 6).map((std) => (
               <StandardCard key={std.id} standard={std} />
             ))}
           </div>
-
         </div>
       </section>
 
@@ -402,10 +180,7 @@ export default function HomePage() {
 
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs"
-              >
+              <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                   className="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 text-base md:text-lg hover:text-[#008AD8] transition-colors"
@@ -456,10 +231,7 @@ export default function HomePage() {
 
       <Footer />
       <WhatsAppWidget />
-      <CommandPalette
-        isOpen={commandPaletteOpen}
-        onClose={() => setCommandPaletteOpen(false)}
-      />
+      <CommandPalette isOpen={commandPaletteOpen} onClose={() => setCommandPaletteOpen(false)} />
     </div>
   );
 }

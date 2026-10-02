@@ -125,50 +125,50 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <h2 className="text-xl font-bold text-[#251574]">Send an Enquiry</h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-slate-900 mb-1">Full Name *</label>
+                    <label className="block text-sm font-bold text-[#251574] mb-1.5">Full Name *</label>
                     <input
                       required
                       type="text"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. David Miller"
-                      className="w-full bg-slate-50 text-slate-900 text-sm px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#008AD8]"
+                      className="form-input-clean"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-900 mb-1">Email Address *</label>
+                    <label className="block text-sm font-bold text-[#251574] mb-1.5">Email Address *</label>
                     <input
                       required
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="david@company.com"
-                      className="w-full bg-slate-50 text-slate-900 text-sm px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#008AD8]"
+                      className="form-input-clean"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-slate-900 mb-1">Phone Number</label>
+                    <label className="block text-sm font-bold text-[#251574] mb-1.5">Phone Number</label>
                     <input
                       type="text"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+44 7000 000000"
-                      className="w-full bg-slate-50 text-slate-900 text-sm px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#008AD8]"
+                      className="form-input-clean"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-900 mb-1">Enquiry Category</label>
+                    <label className="block text-sm font-bold text-[#251574] mb-1.5">Enquiry Category</label>
                     <select
                       value={formData.enquiryType}
                       onChange={(e) => setFormData({ ...formData, enquiryType: e.target.value })}
-                      className="w-full bg-slate-50 text-slate-800 text-xs px-3 py-3 rounded-xl border border-slate-200 focus:outline-none"
+                      className="form-select-clean"
                     >
                       <option value="Certification">ISO Certification Quote</option>
                       <option value="Training">Exemplar Global Training Course</option>
@@ -180,14 +180,14 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-900 text-xs mb-1">Message Detail *</label>
+                  <label className="block text-sm font-bold text-[#251574] mb-1.5">Message Detail *</label>
                   <textarea
                     required
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Provide details about your audit scope, standard requirements, or course dates..."
-                    className="w-full bg-slate-50 text-slate-900 text-xs px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#008AD8]"
+                    className="form-input-clean"
                   />
                 </div>
 

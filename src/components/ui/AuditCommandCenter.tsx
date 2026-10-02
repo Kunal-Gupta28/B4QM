@@ -2,127 +2,19 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FileText,
-  ClipboardCheck,
-  ShieldCheck,
-  Award,
-  RefreshCw,
-  ArrowRight,
-  Sparkles,
-  CheckCircle2,
-  FileCheck2,
-  Activity,
-  Globe2,
-  Lock,
-  Search
-} from "lucide-react";
+import { FileText, ArrowRight, Sparkles, Activity } from "lucide-react";
 import Link from "next/link";
+import { AUDIT_STEPS } from "@/data/auditLifecycleData";
 
 export default function AuditCommandCenter() {
   const [activeStep, setActiveStep] = useState(0);
 
-  const steps = [
-    {
-      step: "01",
-      title: "Application & Man-Day Proposal",
-      timeline: "Days 1–3",
-      icon: FileText,
-      badge: "Stage 01 Proposal",
-      summary: "Submit organizational scope and employee headcount. Receive a transparent IAF MD5 man-day audit proposal with zero hidden surcharges.",
-      cockpitWidget: "MANDAY_ESTIMATOR",
-      metrics: [
-        { label: "Man-Day Table", value: "IAF MD5 Compliant" },
-        { label: "Turnaround", value: "24-48 Hours" },
-        { label: "Fee Surcharges", value: "Zero Hidden Fees" }
-      ],
-      deliverable: "Formal Fixed-Fee Multi-Year Proposal (PDF)"
-    },
-    {
-      step: "02",
-      title: "Stage 1 Readiness Audit",
-      timeline: "Week 2",
-      icon: ClipboardCheck,
-      badge: "Stage 02 Readiness",
-      summary: "Impartial evaluation of management system documentation, policy alignment, and scope readiness prior to full certification.",
-      cockpitWidget: "DOCUMENT_SCANNER",
-      metrics: [
-        { label: "Clause Scope", value: "Clause 4 to 10" },
-        { label: "Doc Review", value: "100% Complete" },
-        { label: "Gap Analysis", value: "Readiness Verified" }
-      ],
-      deliverable: "Stage 1 Audit Readiness Report & Gap Assessment"
-    },
-    {
-      step: "03",
-      title: "Stage 2 Certification Audit",
-      timeline: "Weeks 3–4",
-      icon: ShieldCheck,
-      badge: "Stage 03 Verification",
-      summary: "Comprehensive on-site or hybrid audit verifying operational execution, evidence logs, and technical clause compliance.",
-      cockpitWidget: "AUDITOR_RADAR",
-      metrics: [
-        { label: "Audit Format", value: "Hybrid / On-site" },
-        { label: "Auditor Scope", value: "Exemplar Global Lead" },
-        { label: "Findings Class", value: "Major/Minor NCR" }
-      ],
-      deliverable: "Stage 2 Formal On-site Audit Log & Evidence Review"
-    },
-    {
-      step: "04",
-      title: "Technical Decision & QR Issuance",
-      timeline: "Day 30",
-      icon: Award,
-      badge: "Stage 04 Decision",
-      summary: "Independent technical review committee verifies audit findings. Accredited certificate issued with QR code verification.",
-      cockpitWidget: "QR_STAMP",
-      metrics: [
-        { label: "Review Committee", value: "Independent Panel" },
-        { label: "Verification", value: "Instant QR Code" },
-        { label: "Validity", value: "3 Years Accredited" }
-      ],
-      deliverable: "Official B4Q Accredited ISO Certificate + QR Seal"
-    },
-    {
-      step: "05",
-      title: "Annual Surveillance Audits",
-      timeline: "Years 1 & 2",
-      icon: RefreshCw,
-      badge: "Stage 05 Surveillance",
-      summary: "Brief yearly check-in audits in Years 1 & 2 to ensure continuous management system health and standard adherence.",
-      cockpitWidget: "SURVEILLANCE_CLOCK",
-      metrics: [
-        { label: "Frequency", value: "Annual (Y1 & Y2)" },
-        { label: "Registry Status", value: "Active Public List" },
-        { label: "System Health", value: "Continuous Check" }
-      ],
-      deliverable: "Annual Surveillance Status & Continuous Audit Approval"
-    },
-    {
-      step: "06",
-      title: "Recertification Cycle",
-      timeline: "Year 3",
-      icon: FileCheck2,
-      badge: "Stage 06 Renewal",
-      summary: "Full triennial review at Year 3 to renew certificate validity for another 3-year cycle.",
-      cockpitWidget: "RENEWAL_GAUGE",
-      metrics: [
-        { label: "Cycle", value: "3-Year Triennial" },
-        { label: "Scope Review", value: "Full System Audit" },
-        { label: "Status", value: "Renewed 3 Years" }
-      ],
-      deliverable: "Triennial Recertification Decision & Renewed Certificate"
-    }
-  ];
-
-  const current = steps[activeStep];
+  const current = AUDIT_STEPS[activeStep];
   const StepIcon = current.icon;
 
   return (
     <section className="py-24 md:py-36 bg-slate-50 border-t border-slate-200/80 relative z-20 shadow-[0_-30px_60px_rgba(0,0,0,0.12)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-[#251574] text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
             <Sparkles className="w-4 h-4 text-[#008AD8]" />
@@ -138,7 +30,7 @@ export default function AuditCommandCenter() {
 
         {/* Cockpit Phase Selector */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-12">
-          {steps.map((s, idx) => {
+          {AUDIT_STEPS.map((s, idx) => {
             const Icon = s.icon;
             const isActive = activeStep === idx;
             return (
@@ -157,9 +49,7 @@ export default function AuditCommandCenter() {
                   </span>
                   <Icon className={`w-4 h-4 ${isActive ? "text-[#FF4D5A]" : "text-slate-400 group-hover:text-[#251574]"}`} />
                 </div>
-                <div className="text-xs font-bold truncate leading-tight">
-                  {s.title}
-                </div>
+                <div className="text-xs font-bold truncate leading-tight">{s.title}</div>
                 <div className={`text-[10px] font-mono mt-1 ${isActive ? "text-sky-200" : "text-slate-500"}`}>
                   {s.timeline}
                 </div>
@@ -199,11 +89,8 @@ export default function AuditCommandCenter() {
                 </div>
               </div>
 
-              <p className="text-slate-600 text-base leading-relaxed">
-                {current.summary}
-              </p>
+              <p className="text-slate-600 text-base leading-relaxed">{current.summary}</p>
 
-              {/* Metrics Grid */}
               <div className="grid grid-cols-3 gap-3 pt-2">
                 {current.metrics.map((m, i) => (
                   <div key={i} className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
@@ -213,7 +100,6 @@ export default function AuditCommandCenter() {
                 ))}
               </div>
 
-              {/* Deliverable Badge */}
               <div className="p-4 bg-slate-900 text-white rounded-2xl border border-slate-800 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <FileText className="w-5 h-5 text-sky-400 shrink-0" />
@@ -248,7 +134,6 @@ export default function AuditCommandCenter() {
                 <span className="text-[10px] font-mono text-slate-400">ISO/IEC 17021-1</span>
               </div>
 
-              {/* Dynamic Interactive Widget States */}
               {current.cockpitWidget === "MANDAY_ESTIMATOR" && (
                 <div className="space-y-4">
                   <div className="text-center py-4 bg-white/5 rounded-2xl border border-white/10">
@@ -307,7 +192,6 @@ export default function AuditCommandCenter() {
             </div>
           </motion.div>
         </AnimatePresence>
-
       </div>
     </section>
   );

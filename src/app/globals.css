@@ -78,3 +78,45 @@ body {
   outline: 2px solid #0b1b3f;
   outline-offset: 2px;
 }
+
+/* Premium Form Select & Input Styles */
+.form-input-clean {
+  width: 100%;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #E2E8F0;
+  transition: all 0.2s ease-in-out;
+}
+.form-input-clean:focus {
+  outline: none;
+  background-color: #FFFFFF;
+  border-color: #008AD8;
+  box-shadow: 0 0 0 3px rgba(0, 138, 216, 0.12);
+}
+.form-select-clean {
+  width: 100%;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #E2E8F0;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23334155' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M7 7l3-3 3 3M7 13l3 3 3-3'/%3e%3c/svg%3e");
+  background-position: right 0.85rem center;
+  background-repeat: no-repeat;
+  background-size: 1.15em 1.15em;
+  cursor: pointer;
+}
+.form-select-clean:focus {
+  outline: none;
+  background-color: #FFFFFF;
+  border-color: #008AD8;
+  box-shadow: 0 0 0 3px rgba(0, 138, 216, 0.12);
+}

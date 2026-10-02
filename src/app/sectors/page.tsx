@@ -60,11 +60,11 @@ export default function SectorsPage() {
         <div className="w-full max-w-7xl mx-auto px-[4%] sm:px-[5%] lg:px-[6%] relative z-10 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-sky-300 backdrop-blur-md">
             <Globe2 className="w-4 h-4 text-amber-400" />
-            <span>32 IAF ACCREDITED INDUSTRY SECTORS</span>
+            <span>ACCREDITED INDUSTRIES WE SERVE</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-            Accredited Audit Scope Across <span className="text-sky-400">All 32 IAF Sectors.</span>
+            Accredited Audit Scope Across <span className="text-sky-400">Industries We Serve.</span>
           </h1>
 
           <p className="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
@@ -94,7 +94,7 @@ export default function SectorsPage() {
           {/* Category Filter Pills */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
             {[
-              { id: "ALL", label: "All 32 IAF Sectors" },
+              { id: "ALL", label: "All Industries We Serve" },
               { id: "MANUFACTURING", label: "Manufacturing & Heavy Industry" },
               { id: "SERVICES", label: "Technology & Business Services" },
               { id: "PRIMARY_INFRA", label: "Agri, Infra & Circular Economy" },

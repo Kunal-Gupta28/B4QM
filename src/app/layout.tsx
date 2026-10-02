@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import QueryProvider from "@/components/providers/QueryProvider";
 import AnimatedPageLoader from "@/components/ui/AnimatedPageLoader";
+import ChatWidget from "@/components/ui/ChatWidget";
 
 export const metadata: Metadata = {
   title: "B4Q Management Ltd. | ISO Certification & Exemplar Global Auditor Training",
@@ -46,9 +48,12 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <AnimatedPageLoader />
-        <SmoothScrollProvider>
-          {children}
-        </SmoothScrollProvider>
+        <QueryProvider>
+          <SmoothScrollProvider>
+            {children}
+          </SmoothScrollProvider>
+          <ChatWidget />
+        </QueryProvider>
       </body>
     </html>
   );

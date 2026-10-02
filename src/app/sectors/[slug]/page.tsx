@@ -18,6 +18,7 @@ import { Footer } from "@/components/layout/Footer";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { IAF_SECTORS } from "@/data/sectorsData";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export default function SectorDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
@@ -36,6 +37,13 @@ export default function SectorDetailPage({ params }: { params: Promise<{ slug: s
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-[#251574] via-[#120a3e] to-[#251574] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+          <Breadcrumbs
+            items={[
+              { label: "Industries We Serve", href: "/sectors" },
+              { label: sector.title },
+            ]}
+          />
+
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-sky-300">
             <span>IAF CODE {sector.iafCode}</span>
             <span>•</span>

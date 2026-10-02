@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 const ACCREDITATION_CERTIFICATES = [
   {
@@ -73,6 +74,13 @@ export default function AccreditationPage() {
           <div className="absolute inset-0 bg-grid-pattern opacity-10" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-3xl space-y-4">
+              <Breadcrumbs
+                items={[
+                  { label: "About", href: "/about" },
+                  { label: "Accreditation & Approvals" },
+                ]}
+              />
+
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-xs font-mono text-emerald-300 border border-emerald-500/30">
                 <ShieldCheck className="w-4 h-4 text-brand-emerald" /> Verified International Accreditation & IAF MLA Status
               </div>

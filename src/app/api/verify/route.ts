@@ -1,39 +1,32 @@
-import { NextResponse } from "next/server";
-import { MOCK_ORG_CERTIFICATES, MOCK_PERSONNEL_CERTIFICATES } from "@/data/verifyData";
+import { NextRequest } from "next/server";
+import { verifyCertificateSchema } from "@/lib/validations";
+import { CertificateService } from "@/services/certificateService";
+import { successResponse, errorResponse } from "@/lib/api-response";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const type = searchParams.get("type") || "organisation";
-  const number = searchParams.get("number")?.trim() || "";
-  const name = searchParams.get("name")?.trim().toLowerCase() || "";
-  const country = searchParams.get("country") || "";
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const type = searchParams.get("type") || "organisation";
+    const number = searchParams.get("number") || "";
+    const name = searchParams.get("name") || "";
+    const country = searchParams.get("country") || "ALL";
 
-  // Simulate realistic network latency for verification checks
-  await new Promise((resolve) => setTimeout(resolve, 600));
+    const parseResult = verifyCertificateSchema.safeParse({ type, number, name, country });
 
-  if (type === "organisation") {
-    const result = MOCK_ORG_CERTIFICATES.find((cert) => {
-      const matchNum = number ? cert.certificateNumber.toLowerCase().includes(number.toLowerCase()) : true;
-      const matchName = name ? cert.organisationName.toLowerCase().includes(name) || (cert.tradingName && cert.tradingName.toLowerCase().includes(name)) : true;
-      const matchCountry = country && country !== "ALL" ? cert.countryCode === country : true;
-      return (number || name) && matchNum && matchName && matchCountry;
-    });
-
-    if (result) {
-      return NextResponse.json({ success: true, data: result });
+    if (!parseResult.success) {
+      const fieldErrors = parseResult.error.flatten().fieldErrors;
+      return errorResponse("Invalid search parameters", 400, fieldErrors);
     }
-  } else {
-    const result = MOCK_PERSONNEL_CERTIFICATES.find((cert) => {
-      const matchNum = number ? cert.certificateNumber.toLowerCase().includes(number.toLowerCase()) : true;
-      const matchName = name ? cert.auditorName.toLowerCase().includes(name) : true;
-      const matchCountry = country && country !== "ALL" ? cert.countryCode === country : true;
-      return (number || name) && matchNum && matchName && matchCountry;
-    });
 
-    if (result) {
-      return NextResponse.json({ success: true, data: result });
+    const verification = await CertificateService.verifyCertificate(parseResult.data);
+
+    if (!verification.found) {
+      return errorResponse("Certificate record not found in B4Q global registry database.", 404);
     }
+
+    return successResponse(verification.certificate, "Certificate verified successfully.");
+  } catch (err) {
+    console.error("API /api/verify error:", err);
+    return errorResponse("An internal server error occurred while verifying the certificate.", 500);
   }
-
-  return NextResponse.json({ success: false, message: "Certificate record not found in B4Q registry database." }, { status: 404 });
 }

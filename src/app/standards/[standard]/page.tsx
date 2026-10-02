@@ -26,6 +26,7 @@ import { CommandPalette } from "@/components/ui/CommandPalette";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { getStandardBySlug, ALL_STANDARDS } from "@/data/standardsData";
 import { AnnexAExplorer } from "@/components/ui/AnnexAExplorer";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export default function StandardDetailPage() {
   const params = useParams();
@@ -61,6 +62,13 @@ export default function StandardDetailPage() {
       {/* Hero Section */}
       <section className="pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-sky-50/60 via-white to-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <Breadcrumbs
+            items={[
+              { label: "ISO Standards", href: "/standards" },
+              { label: standard.code },
+            ]}
+          />
+
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-[#008AD8] text-xs font-bold font-mono">
             <Award className="w-4 h-4 text-[#008AD8]" />
             <span>{standard.code} Specification</span>
@@ -81,13 +89,6 @@ export default function StandardDetailPage() {
                 <ArrowRight className="w-4 h-4" />
               </button>
             </Link>
-            <button
-              onClick={() => alert(`Downloading specification brochure for ${standard.code}`)}
-              className="px-6 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-semibold text-sm transition-colors flex items-center gap-2"
-            >
-              <Download className="w-4 h-4 text-[#008AD8]" />
-              <span>Download Spec Sheet</span>
-            </button>
           </div>
         </div>
       </section>

@@ -1,86 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ShieldCheck,
-  Award,
-  Globe2,
-  Users,
-  CheckCircle2,
-  XCircle,
-  Download,
-  ArrowRight,
-  X,
-  Building2,
-  Check
-} from "lucide-react";
+import { ShieldCheck, CheckCircle2, XCircle, Check, X } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
-
-const TEAM_MEMBERS = [
-  {
-    id: "sn-nandi",
-    name: "SitaNath Nandi",
-    role: "Senior Lead Auditor & Technical Director",
-    credentials: ["MBA", "B.E. Computer Science"],
-    experienceYears: 25,
-    standards: ["ISO 9001", "ISO 27001", "ISO 20000-1", "ISO 27701", "ISO 50001"],
-    bio: "Over 25 years of IT systems analysis, business architecture, and lead auditing experience across IT services, financial tech, and enterprise management systems."
-  },
-  {
-    id: "miraj-sahab",
-    name: "Miraj Sahab",
-    role: "Principal Audit & Training Tutor",
-    credentials: ["MBA", "Lead Auditor QMS/EMS/OH&S"],
-    experienceYears: 31,
-    standards: ["ISO 9001", "ISO 14001", "ISO 45001", "ISO 17025", "NABH"],
-    bio: "31+ years of auditing, accredited training, and industrial compliance leadership across manufacturing, healthcare, and testing laboratories."
-  },
-  {
-    id: "hari-bharthy",
-    name: "Hari Haran Bharthy",
-    role: "Quality & Environmental Systems Auditor",
-    credentials: ["B.Sc Chemistry", "PG Dip HR"],
-    experienceYears: 26,
-    standards: ["ISO 9001", "ISO 14001", "TQM", "5S", "SAP-QM"],
-    bio: "26+ years of expertise in quality assurance, environmental management systems, process engineering, and total quality management."
-  },
-  {
-    id: "ranadheer-macharla",
-    name: "Ranadheer Macharla",
-    role: "InfoSec & FSMS Lead Auditor",
-    credentials: ["B.Sc CS", "MCA"],
-    experienceYears: 21,
-    standards: ["ISO 27001", "ISO 22000", "BCM", "CMMI", "EHS"],
-    bio: "21 years of corporate training and lead auditing across InfoSec, business continuity, CMMI, quality management, and food safety."
-  },
-  {
-    id: "purushottam-moga",
-    name: "Purushottam Moga",
-    role: "Industrial & Safety Systems Tutor",
-    credentials: ["B.E. Mechanical", "Six Sigma"],
-    experienceYears: 20,
-    standards: ["ISO 9001", "ISO 14001", "ISO 45001", "Six Sigma"],
-    bio: "20+ years of industrial engineering, manufacturing quality, health & safety training, and process optimization."
-  },
-  {
-    id: "yasser-tantawy",
-    name: "Dr. Yasser Tantawy",
-    role: "Senior Aviation & Defence Auditor",
-    credentials: ["Ph.D. Engineering", "LA QHSE/ISMS"],
-    experienceYears: 30,
-    standards: ["ISO 9001", "ISO 27001", "ISO 22301", "QHSE", "EnMS"],
-    bio: "30 years of international auditing across defence, aviation, maritime, and critical infrastructure sectors in UK, Europe, and Middle East."
-  }
-];
+import { TEAM_MEMBERS, TeamMember } from "@/data/teamData";
 
 export default function AboutPage() {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
-  const [selectedMember, setSelectedMember] = useState<typeof TEAM_MEMBERS[0] | null>(null);
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
   return (
     <div className="w-full min-h-[100dvh] max-w-[100dvw] bg-white text-slate-900 flex flex-col font-sans selection:bg-[#251574] selection:text-white">
@@ -120,7 +51,6 @@ export default function AboutPage() {
 
       {/* Main Narrative & Impartiality Grid */}
       <main className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 space-y-20">
-        
         {/* Quality Policy Cards */}
         <section className="space-y-6">
           <div className="text-center max-w-2xl mx-auto">
@@ -161,7 +91,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Impartiality Comparison Table: We Always / We Never */}
+        {/* Impartiality Comparison Table */}
         <section className="p-8 sm:p-10 rounded-2xl bg-slate-50 border-2 border-[#251574] space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-mono font-bold text-[#008AD8] uppercase tracking-wider block">ISO 17021 Compliance</span>
@@ -237,7 +167,6 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
-
       </main>
 
       {/* Team Detail Drawer Modal */}
