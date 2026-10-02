@@ -146,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                               <div className="flex items-center gap-1.5">
                                 <span className="font-mono text-[11px] font-bold text-[#008AD8] truncate">{std.code}</span>
                                 {std.badge && (
-                                  <span className="text-[9px] px-1 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200 shrink-0">
+                                  <span className="text-[9px] px-1 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200 shrink-0 whitespace-nowrap">
                                     {std.badge}
                                   </span>
                                 )}

@@ -47,17 +47,17 @@ export const StandardCard: React.FC<StandardCardProps> = ({ standard }) => {
     >
       <div>
         {/* Card Header: Icon, Code & Badge */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="p-2.5 rounded-lg bg-slate-100 border border-slate-200">
+        <div className="flex items-center justify-between mb-4 gap-2">
+          <div className="p-2.5 rounded-lg bg-slate-100 border border-slate-200 shrink-0">
             {getIcon(standard.iconName)}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 flex-wrap justify-end">
             {standard.badge && (
-              <span className="text-[10px] px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200 font-mono">
+              <span className="inline-block text-[10px] px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200 font-mono whitespace-nowrap shrink-0">
                 {standard.badge}
               </span>
             )}
-            <span className="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 font-mono font-medium">
+            <span className="inline-block text-[11px] px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 font-mono font-medium whitespace-nowrap shrink-0">
               {standard.clauseChip}
             </span>
           </div>
