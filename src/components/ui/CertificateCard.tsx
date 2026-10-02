@@ -39,26 +39,29 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-navy via-brand-coral to-brand-navy" />
 
         {/* Card Header: Issuer Logo & Valid Status Pill */}
-        <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-white font-bold text-sm shadow-sm">
-              B4Q
+        <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-4 gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex items-center justify-center shrink-0">
+              <img
+                src="/logo.jpg"
+                alt="B4Q Management Ltd Logo"
+                className="h-9 w-auto object-contain rounded-md"
+              />
             </div>
-            <div>
-              <span className="font-serif text-base font-bold tracking-tight text-slate-900 block leading-tight">
+            <div className="min-w-0">
+              <span className="font-serif text-sm sm:text-base font-bold tracking-tight text-slate-900 block leading-tight truncate">
                 B4Q Management Ltd.
               </span>
-              <span className="text-[11px] text-slate-500 font-medium tracking-wide uppercase">
+              <span className="text-[10px] sm:text-[11px] text-slate-500 font-medium tracking-wide uppercase truncate block">
                 ISO Certification Body
               </span>
             </div>
           </div>
 
           {/* Valid Emerald Status Pill */}
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Valid Certificate</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-700 text-xs font-bold whitespace-nowrap shrink-0">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span className="whitespace-nowrap">Valid Certificate</span>
           </div>
         </div>
 
