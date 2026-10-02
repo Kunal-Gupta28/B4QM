@@ -26,6 +26,7 @@ import {
   Layers,
   HeartPulse
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { ISO_STANDARDS } from "@/lib/data";
 
@@ -34,9 +35,15 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<"certification" | "training" | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const isActive = (path: string) => {
+    if (path === "/") return pathname === "/";
+    return pathname.startsWith(path);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,12 +111,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             <div className="relative" onMouseEnter={() => setActiveMenu("certification")}>
               <Link
                 href="/standards"
-                className={`inline-flex items-center justify-center text-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-full transition-colors ${
-                  activeMenu === "certification" ? "bg-slate-100 text-[#251574]" : "text-slate-700 hover:text-[#251574] hover:bg-slate-100"
+                className={`inline-flex items-center justify-center text-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-full transition-all ${
+                  activeMenu === "certification"
+                    ? "bg-slate-100 text-[#251574]"
+                    : isActive("/standards")
+                    ? "bg-[#251574] text-white font-bold shadow-sm"
+                    : "text-slate-700 hover:text-[#251574] hover:bg-slate-100"
                 }`}
               >
                 <span>ISO Standards</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeMenu === "certification" ? "rotate-180 text-[#FF4D5A]" : ""}`} />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
+                  activeMenu === "certification"
+                    ? "rotate-180 text-[#FF4D5A]"
+                    : isActive("/standards")
+                    ? "text-white/80"
+                    : ""
+                }`} />
               </Link>
 
               {/* Clean, Compact Mega Menu Dropdown */}
@@ -201,7 +218,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             <Link
               href="/training"
               onMouseEnter={() => setActiveMenu(null)}
-              className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
+              className={`inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold rounded-full transition-all ${
+                isActive("/training")
+                  ? "bg-[#251574] text-white font-bold shadow-sm"
+                  : "text-slate-700 hover:text-[#251574] hover:bg-slate-100"
+              }`}
             >
               Auditor Training
             </Link>
@@ -210,18 +231,46 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             <Link
               href="/sectors"
               onMouseEnter={() => setActiveMenu(null)}
-              className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
+              className={`inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold rounded-full transition-all ${
+                isActive("/sectors")
+                  ? "bg-[#251574] text-white font-bold shadow-sm"
+                  : "text-slate-700 hover:text-[#251574] hover:bg-slate-100"
+              }`}
             >
               Industries We Serve
             </Link>
 
-            <Link href="/about" onMouseEnter={() => setActiveMenu(null)} className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+            <Link
+              href="/about"
+              onMouseEnter={() => setActiveMenu(null)}
+              className={`inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold rounded-full transition-all ${
+                isActive("/about")
+                  ? "bg-[#251574] text-white font-bold shadow-sm"
+                  : "text-slate-700 hover:text-[#251574] hover:bg-slate-100"
+              }`}
+            >
               About
             </Link>
-            <Link href="/resources/documents" onMouseEnter={() => setActiveMenu(null)} className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+            <Link
+              href="/resources/documents"
+              onMouseEnter={() => setActiveMenu(null)}
+              className={`inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold rounded-full transition-all ${
+                isActive("/resources")
+                  ? "bg-[#251574] text-white font-bold shadow-sm"
+                  : "text-slate-700 hover:text-[#251574] hover:bg-slate-100"
+              }`}
+            >
               General
             </Link>
-            <Link href="/contact" onMouseEnter={() => setActiveMenu(null)} className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+            <Link
+              href="/contact"
+              onMouseEnter={() => setActiveMenu(null)}
+              className={`inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold rounded-full transition-all ${
+                isActive("/contact")
+                  ? "bg-[#251574] text-white font-bold shadow-sm"
+                  : "text-slate-700 hover:text-[#251574] hover:bg-slate-100"
+              }`}
+            >
               Contact
             </Link>
           </nav>
@@ -268,22 +317,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             <div className="px-4 py-6 space-y-4">
               <div className="space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Navigation</div>
-                <Link href="/standards" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
+                <Link href="/standards" onClick={() => setMobileMenuOpen(false)} className={`block py-2.5 px-3 rounded-xl text-base font-semibold border-b border-slate-100 transition-colors ${isActive("/standards") ? "bg-[#251574] text-white font-bold" : "text-slate-900 hover:bg-slate-50"}`}>
                   ISO Standards (5 Core Standards)
                 </Link>
-                <Link href="/training" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
+                <Link href="/training" onClick={() => setMobileMenuOpen(false)} className={`block py-2.5 px-3 rounded-xl text-base font-semibold border-b border-slate-100 transition-colors ${isActive("/training") ? "bg-[#251574] text-white font-bold" : "text-slate-900 hover:bg-slate-50"}`}>
                   Auditor Training
                 </Link>
-                <Link href="/sectors" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
+                <Link href="/sectors" onClick={() => setMobileMenuOpen(false)} className={`block py-2.5 px-3 rounded-xl text-base font-semibold border-b border-slate-100 transition-colors ${isActive("/sectors") ? "bg-[#251574] text-white font-bold" : "text-slate-900 hover:bg-slate-50"}`}>
                   Industries We Serve (32 IAF Sectors)
                 </Link>
-                <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
+                <Link href="/about" onClick={() => setMobileMenuOpen(false)} className={`block py-2.5 px-3 rounded-xl text-base font-semibold border-b border-slate-100 transition-colors ${isActive("/about") ? "bg-[#251574] text-white font-bold" : "text-slate-900 hover:bg-slate-50"}`}>
                   About B4Q
                 </Link>
-                <Link href="/resources/documents" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
+                <Link href="/resources/documents" onClick={() => setMobileMenuOpen(false)} className={`block py-2.5 px-3 rounded-xl text-base font-semibold border-b border-slate-100 transition-colors ${isActive("/resources") ? "bg-[#251574] text-white font-bold" : "text-slate-900 hover:bg-slate-50"}`}>
                   Document Library
                 </Link>
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className={`block py-2.5 px-3 rounded-xl text-base font-semibold border-b border-slate-100 transition-colors ${isActive("/contact") ? "bg-[#251574] text-white font-bold" : "text-slate-900 hover:bg-slate-50"}`}>
                   Contact Global Offices
                 </Link>
               </div>
