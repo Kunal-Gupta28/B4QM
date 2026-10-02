@@ -19,7 +19,8 @@ import {
   Layers,
   ChevronRight,
   Sun,
-  Moon
+  Moon,
+  AlertTriangle
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -27,6 +28,11 @@ import { Footer } from "@/components/layout/Footer";
 export default function StyleguidePage() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [activeTab, setActiveTab] = useState<"colors" | "typography" | "buttons" | "inputs" | "badges" | "cards">("colors");
+  const [shouldThrowError, setShouldThrowError] = useState(false);
+
+  if (shouldThrowError) {
+    throw new Error("Test Error Boundary Triggered via Styleguide.");
+  }
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${isDarkMode ? "dark bg-brand-navyDark text-slate-100" : "bg-slate-50 text-slate-900"}`}>
@@ -67,6 +73,14 @@ export default function StyleguidePage() {
                   }`}
                 >
                   <Moon className="w-3.5 h-3.5" /> Dark Mode
+                </button>
+                <button
+                  onClick={() => setShouldThrowError(true)}
+                  className="px-3.5 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-xs font-mono font-bold text-rose-300 transition-all flex items-center gap-1.5 cursor-pointer ml-2"
+                  title="Click to test Next.js App Router Error Boundary page (error.tsx)"
+                >
+                  <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
+                  <span>Test Error Boundary</span>
                 </button>
               </div>
             </div>
