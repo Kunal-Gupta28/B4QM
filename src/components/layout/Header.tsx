@@ -200,6 +200,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             {/* Direct Link: Auditor Training */}
             <Link
               href="/training"
+              onMouseEnter={() => setActiveMenu(null)}
               className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
             >
               Auditor Training
@@ -208,18 +209,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             {/* RENAMED LINK: Industries We Serve */}
             <Link
               href="/sectors"
+              onMouseEnter={() => setActiveMenu(null)}
               className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors"
             >
               Industries We Serve
             </Link>
 
-            <Link href="/about" className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+            <Link href="/about" onMouseEnter={() => setActiveMenu(null)} className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
               About
             </Link>
-            <Link href="/resources/documents" className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+            <Link href="/resources/documents" onMouseEnter={() => setActiveMenu(null)} className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
               General
             </Link>
-            <Link href="/contact" className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
+            <Link href="/contact" onMouseEnter={() => setActiveMenu(null)} className="inline-flex items-center justify-center text-center px-4 py-2 text-sm font-semibold text-slate-700 hover:text-[#251574] rounded-full hover:bg-slate-100 transition-colors">
               Contact
             </Link>
           </nav>
