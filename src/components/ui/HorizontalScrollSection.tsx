@@ -239,7 +239,7 @@ export default function HorizontalScrollSection() {
                   {/* Card Bottom CTA */}
                   <div className="pt-6 border-t border-white/10 flex items-center justify-between">
                     <Link
-                      href={`/certification/${std.id}`}
+                      href={`/standards/${std.id}`}
                       className="w-full inline-flex items-center justify-between px-6 py-3.5 rounded-2xl bg-white text-slate-900 font-bold text-xs hover:bg-sky-400 hover:text-white transition-all shadow-lg group-hover:shadow-sky-400/30"
                     >
                       <span>Explore Standard Specs</span>

@@ -83,7 +83,7 @@ export const StandardCard: React.FC<StandardCardProps> = ({ standard }) => {
 
       {/* Card Footer Link */}
       <Link
-        href={`/certification/${standard.id}`}
+        href={`/standards/${standard.id}`}
         className="inline-flex items-center justify-between text-xs font-semibold text-brand-navy group-hover:text-brand-coral transition-colors pt-3 border-t border-slate-100"
       >
         <span>Explore Standard Specification</span>

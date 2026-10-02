@@ -147,7 +147,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
                     <span className="text-[11px] font-mono text-sky-700 uppercase tracking-wider font-bold">
                       ISO Management Standards ({filteredStandards.length})
                     </span>
-                    <button onClick={() => handleSelect("/certification")} className="text-[10px] font-mono text-slate-500 hover:text-sky-700 font-semibold">
+                    <button onClick={() => handleSelect("/standards")} className="text-[10px] font-mono text-slate-500 hover:text-sky-700 font-semibold">
                       View All Standards →
                     </button>
                   </div>
@@ -155,7 +155,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
                     {filteredStandards.map((std) => (
                       <button
                         key={std.id}
-                        onClick={() => handleSelect(`/certification/${std.id}`)}
+                        onClick={() => handleSelect(`/standards/${std.id}`)}
                         className="w-full p-3 rounded-xl bg-slate-50 hover:bg-sky-50/70 border border-slate-200/70 hover:border-sky-300 flex items-center justify-between text-left group transition-all"
                       >
                         <div>

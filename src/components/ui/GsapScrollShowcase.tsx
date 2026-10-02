@@ -132,7 +132,7 @@ export default function GsapScrollShowcase() {
 
           {/* Bento Card 2: ISO 27001 Security Standard */}
           <Link
-            href="/certification/iso-27001"
+            href="/standards/iso-27001"
             className="bento-card bg-white rounded-3xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all duration-500 group flex flex-col justify-between"
           >
             <div>

@@ -103,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             {/* ISO Standards Mega Menu Trigger */}
             <div className="relative" onMouseEnter={() => setActiveMenu("certification")}>
               <Link
-                href="/certification"
+                href="/standards"
                 className={`inline-flex items-center justify-center text-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-full transition-colors ${
                   activeMenu === "certification" ? "bg-slate-100 text-[#251574]" : "text-slate-700 hover:text-[#251574] hover:bg-slate-100"
                 }`}
@@ -128,7 +128,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                         <span className="text-xs font-mono font-bold text-[#251574] uppercase tracking-wider">
                           Core ISO Standards Scope
                         </span>
-                        <Link href="/certification" onClick={() => setActiveMenu(null)} className="text-[11px] font-bold text-[#008AD8] hover:underline">
+                        <Link href="/standards" onClick={() => setActiveMenu(null)} className="text-[11px] font-bold text-[#008AD8] hover:underline">
                           View All 5 Standards →
                         </Link>
                       </div>
@@ -137,7 +137,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                         {featuredStandards.map((std) => (
                           <Link
                             key={std.id}
-                            href={`/certification/${std.id}`}
+                            href={`/standards/${std.id}`}
                             onClick={() => setActiveMenu(null)}
                             className="p-2.5 rounded-xl hover:bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all group flex items-start gap-2.5"
                           >
@@ -163,7 +163,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
 
                       <div className="pt-2 border-t border-slate-100">
                         <Link
-                          href="/certification"
+                          href="/standards"
                           onClick={() => setActiveMenu(null)}
                           className="w-full py-2 bg-slate-100 hover:bg-[#251574] hover:text-white text-slate-800 font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2"
                         >
@@ -268,7 +268,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             <div className="px-4 py-6 space-y-4">
               <div className="space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Navigation</div>
-                <Link href="/certification" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
+                <Link href="/standards" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">
                   ISO Standards (5 Core Standards)
                 </Link>
                 <Link href="/training" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base font-semibold text-slate-900 border-b border-slate-100">

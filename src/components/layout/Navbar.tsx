@@ -39,11 +39,11 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const standardsNav = [
-    { name: "ISO 9001", code: "Quality Management", href: "/certification/iso-9001", icon: Award },
-    { name: "ISO 14001", code: "Environmental Management", href: "/certification/iso-14001", icon: Leaf },
-    { name: "ISO 45001", code: "Health & Safety", href: "/certification/iso-45001", icon: HeartPulse },
-    { name: "ISO 22000", code: "Food Safety Management", href: "/certification/iso-22000", icon: Utensils },
-    { name: "ISO 27001", code: "Information Security (2022)", href: "/certification/iso-27001", icon: Lock },
+    { name: "ISO 9001", code: "Quality Management", href: "/standards/iso-9001", icon: Award },
+    { name: "ISO 14001", code: "Environmental Management", href: "/standards/iso-14001", icon: Leaf },
+    { name: "ISO 45001", code: "Health & Safety", href: "/standards/iso-45001", icon: HeartPulse },
+    { name: "ISO 22000", code: "Food Safety Management", href: "/standards/iso-22000", icon: Utensils },
+    { name: "ISO 27001", code: "Information Security (2022)", href: "/standards/iso-27001", icon: Lock },
   ];
 
   return (
@@ -74,9 +74,9 @@ export const Navbar: React.FC = () => {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-7">
             <Link
-              href="/certification"
+              href="/standards"
               className={`text-sm font-medium transition-colors ${
-                pathname === "/certification" ? "text-brand-coral font-semibold" : "text-slate-200 hover:text-white"
+                pathname === "/standards" ? "text-brand-coral font-semibold" : "text-slate-200 hover:text-white"
               }`}
             >
               ISO Standards
@@ -148,7 +148,7 @@ export const Navbar: React.FC = () => {
 
             <div className="pt-2 space-y-2 border-t border-white/10">
               <Link
-                href="/certification"
+                href="/standards"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-sm font-semibold text-white"
               >
